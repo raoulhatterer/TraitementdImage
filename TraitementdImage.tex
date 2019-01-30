@@ -1,0 +1,144 @@
+% Created 2019-01-12 sam. 23:04
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage[frenchb]{babel}
+\author{Raoul HATTERER}
+\date{\today}
+\title{Traitement d'image\\\medskip
+\large (1 séance = 1h30)}
+\hypersetup{
+ pdfauthor={Raoul HATTERER},
+ pdftitle={Traitement d'image},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.14)}, 
+ pdflang={Frenchb}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
+
+\section{Installation de PIL}
+\label{sec:org8424694}
+
+À faire au préalable par le professeur.
+
+\begin{minted}[]{shell}
+ pip3 install pillow
+\end{minted}
+
+
+\section{Image de départ}
+\label{sec:org5f15109}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pomme.jpg}
+\caption{Image de départ (480px \texttimes{} 300px)}
+\end{figure}
+
+
+\section{Comment lire un pixel}
+\label{sec:orgcb91e59}
+
+Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+r,v,b=img.getpixel((100,250))
+print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
+\end{minted}
+
+\begin{verbatim}
+canal rouge :  19 canal vert :  88 canal bleu :  192
+\end{verbatim}
+
+
+\section{Comment écrire un pixel}
+\label{sec:org4ee9a8c}
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+img.putpixel((5,5),(255,0,0))
+img.show()
+\end{minted}
+
+
+\section{Que fait le programme suivant ?}
+\label{sec:org5e4e588}
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image=480
+hauteur_image=300
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        r,v,b=img.getpixel((x,y))
+        n_r=v
+        n_v=b
+        n_b=r
+        img.putpixel((x,y),(n_r,n_v,n_b))
+img.show()
+img.save("pommeMystere.jpg")
+\end{minted}
+
+
+On analyse le code ci-dessus qui servira de base pour le défi suivant.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommeMystere.jpg}
+\caption{Résultat du programme mystère}
+\end{figure}
+
+\section{Passage d'une image en niveau de gris}
+\label{sec:org1502eed}
+
+Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+
+Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
+
+Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils doivent alors programmer le passage d'une image couleur à une image en niveaux de gris.
+
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image=480
+hauteur_image=300
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        r,v,b=img.getpixel((x,y))
+        n_r=(v+b+r)//3
+        n_v=(v+b+r)//3
+        n_b=(v+b+r)//3
+        img.putpixel((x,y),(n_r,n_v,n_b))
+img.show()
+img.save("pommegrise.jpg")
+\end{minted}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommegrise.jpg}
+\caption{Image en niveaux de gris}
+\end{figure}
+\end{document}

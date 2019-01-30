@@ -1,0 +1,113 @@
+#+STARTUP: inlineimages
+#+LANGUAGE: fr
+#+LATEX_HEADER: \usepackage[AUTO]{babel}
+#+TITLE: Traitement d'image 
+#+SUBTITLE: (1 séance = 1h30)
+#+AUTHOR: Raoul HATTERER
+
+
+
+Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
+
+* Installation de PIL
+
+À faire au préalable par le professeur.
+
+#+begin_src shell
+ pip3 install pillow
+#+end_src
+
+
+* Image de départ
+
+#+CAPTION: Image de départ (480px \times 300px)
+[[file:pomme.jpg]]
+
+
+* Comment lire un pixel
+
+Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
+
+#+begin_src python :results output :exports both :tangle lecturePixel.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+r,v,b=img.getpixel((100,250))
+print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
+#+end_src
+
+#+RESULTS:
+: canal rouge :  19 canal vert :  88 canal bleu :  192
+
+
+* Comment écrire un pixel
+
+#+begin_src python  :tangle ecriturePixel.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+img.putpixel((5,5),(255,0,0))
+img.show()
+#+end_src
+
+#+RESULTS:
+: None
+
+
+* Que fait le programme suivant ?
+
+#+begin_src python  :tangle  mystere.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image=480
+hauteur_image=300
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        r,v,b=img.getpixel((x,y))
+        n_r=v
+        n_v=b
+        n_b=r
+        img.putpixel((x,y),(n_r,n_v,n_b))
+img.show()
+img.save("pommeMystere.jpg")
+#+end_src
+
+#+RESULTS:
+: None
+
+
+On analyse le code ci-dessus qui servira de base pour le défi suivant.
+
+#+CAPTION: Résultat du programme mystère
+[[file:pommeMystere.jpg]]
+
+* Passage d'une image en niveau de gris
+
+Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+
+Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
+
+Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils doivent alors programmer le passage d'une image couleur à une image en niveaux de gris.
+
+
+#+begin_src python  :tangle pommegrise.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image=480
+hauteur_image=300
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        r,v,b=img.getpixel((x,y))
+        n_r=(v+b+r)//3
+        n_v=(v+b+r)//3
+        n_b=(v+b+r)//3
+        img.putpixel((x,y),(n_r,n_v,n_b))
+img.show()
+img.save("pommegrise.jpg")
+#+end_src
+
+#+RESULTS:
+: None
+
+#+CAPTION: Image en niveaux de gris
+[[file:pommegrise.jpg]]
+
+
