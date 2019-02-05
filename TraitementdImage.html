@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<!-- 2019-02-05 mar. 22:43 -->
+<!-- 2019-02-05 mar. 23:00 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Traitement d'image</title>
@@ -250,25 +250,21 @@ for the JavaScript code in this tag.
 <h2>Table des matières</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaff0c9e">1. Installation de PIL</a></li>
-<li><a href="#org1598c80">2. Image de départ</a></li>
-<li><a href="#org6af4a54">3. Comment lire un pixel</a></li>
-<li><a href="#org7a53daa">4. Comment écrire un pixel</a></li>
-<li><a href="#org84655f8">5. Que fait le programme suivant ?</a></li>
-<li><a href="#org6d33ebc">6. Passage d'une image en niveau de gris</a></li>
+<li><a href="#org6c0bbab">1. Installation de PIL</a></li>
+<li><a href="#org021be29">2. Image de départ</a></li>
+<li><a href="#orgdedca8b">3. Comment lire un pixel</a></li>
+<li><a href="#orgcc474f7">4. Comment écrire un pixel</a></li>
+<li><a href="#orgfccbaf8">5. Que fait le programme suivant ?</a></li>
+<li><a href="#org93eac4b">6. Passage d'une image en niveau de gris</a></li>
 </ul>
 </div>
 </div>
 <p>
-test de contribution externe avec merge à la fin
-</p>
-
-<p>
 Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a>
 </p>
 
-<div id="outline-container-orgaff0c9e" class="outline-2">
-<h2 id="orgaff0c9e"><span class="section-number-2">1</span> Installation de PIL</h2>
+<div id="outline-container-org6c0bbab" class="outline-2">
+<h2 id="org6c0bbab"><span class="section-number-2">1</span> Installation de PIL</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 À faire au préalable par le professeur.
@@ -282,8 +278,8 @@ Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site
 </div>
 
 
-<div id="outline-container-org1598c80" class="outline-2">
-<h2 id="org1598c80"><span class="section-number-2">2</span> Image de départ</h2>
+<div id="outline-container-org021be29" class="outline-2">
+<h2 id="org021be29"><span class="section-number-2">2</span> Image de départ</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -295,8 +291,8 @@ Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site
 </div>
 
 
-<div id="outline-container-org6af4a54" class="outline-2">
-<h2 id="org6af4a54"><span class="section-number-2">3</span> Comment lire un pixel</h2>
+<div id="outline-container-orgdedca8b" class="outline-2">
+<h2 id="orgdedca8b"><span class="section-number-2">3</span> Comment lire un pixel</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
@@ -317,8 +313,8 @@ Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment l
 </div>
 
 
-<div id="outline-container-org7a53daa" class="outline-2">
-<h2 id="org7a53daa"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
+<div id="outline-container-orgcc474f7" class="outline-2">
+<h2 id="orgcc474f7"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -331,8 +327,8 @@ img.show()
 </div>
 
 
-<div id="outline-container-org84655f8" class="outline-2">
-<h2 id="org84655f8"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
+<div id="outline-container-orgfccbaf8" class="outline-2">
+<h2 id="orgfccbaf8"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -366,8 +362,8 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 </div>
 
 
-<div id="outline-container-org6d33ebc" class="outline-2">
-<h2 id="org6d33ebc"><span class="section-number-2">6</span> Passage d'une image en niveau de gris</h2>
+<div id="outline-container-org93eac4b" class="outline-2">
+<h2 id="org93eac4b"><span class="section-number-2">6</span> Passage d'une image en niveau de gris</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
@@ -410,7 +406,7 @@ img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
 </div>
 <div id="postamble" class="status">
 <p class="author">Auteur: Raoul HATTERER</p>
-<p class="date">Created: 2019-02-05 mar. 22:43</p>
+<p class="date">Created: 2019-02-05 mar. 23:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
