@@ -7,7 +7,7 @@
 #+SUBTITLE: (1 séance = 1h30)
 #+AUTHOR: Raoul HATTERER
 
-
+test de proposition venant d'un autre compte Github
 
 Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
 
@@ -83,7 +83,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 * Passage d'une image en niveau de gris
 
-Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris". 
 
 Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
 
