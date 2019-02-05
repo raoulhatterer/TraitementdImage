@@ -7,7 +7,7 @@
 #+SUBTITLE: (1 séance = 1h30)
 #+AUTHOR: Raoul HATTERER
 
-test de contribution externe avec merge à la fin
+
 
 Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
 
