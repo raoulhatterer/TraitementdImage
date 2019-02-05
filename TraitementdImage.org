@@ -81,6 +81,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 #+CAPTION: Résultat du programme mystère
 [[file:pommeMystere.jpg]]
 
+
 * Passage d'une image en niveau de gris
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
