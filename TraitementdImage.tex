@@ -1,4 +1,4 @@
-% Created 2019-01-12 sam. 23:04
+% Created 2019-02-05 mar. 23:00
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -15,7 +15,9 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{minted}
-\usepackage[frenchb]{babel}
+\usepackage[french]{babel}
+\usepackage[x11names]{xcolor}
+\hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
 \author{Raoul HATTERER}
 \date{\today}
 \title{Traitement d'image\\\medskip
@@ -25,8 +27,8 @@
  pdftitle={Traitement d'image},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 26.1 (Org mode 9.1.14)}, 
- pdflang={Frenchb}}
+ pdfcreator={Emacs 26.1 (Org mode 9.2)}, 
+ pdflang={French}}
 \begin{document}
 
 \maketitle
@@ -35,7 +37,7 @@
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
 \section{Installation de PIL}
-\label{sec:org8424694}
+\label{sec:orgb55ae5c}
 
 À faire au préalable par le professeur.
 
@@ -45,7 +47,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Image de départ}
-\label{sec:org5f15109}
+\label{sec:org77e2dba}
 
 \begin{figure}[htbp]
 \centering
@@ -55,7 +57,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Comment lire un pixel}
-\label{sec:orgcb91e59}
+\label{sec:org3dbb6ed}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -67,12 +69,12 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 \end{minted}
 
 \begin{verbatim}
-canal rouge :  19 canal vert :  88 canal bleu :  192
+('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
 \end{verbatim}
 
 
 \section{Comment écrire un pixel}
-\label{sec:org4ee9a8c}
+\label{sec:org8869b37}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -83,7 +85,7 @@ img.show()
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:org5e4e588}
+\label{sec:orgf4386f6}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -110,8 +112,9 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 \caption{Résultat du programme mystère}
 \end{figure}
 
+
 \section{Passage d'une image en niveau de gris}
-\label{sec:org1502eed}
+\label{sec:org15181f8}
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
 
