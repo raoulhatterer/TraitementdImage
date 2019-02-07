@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<!-- 2019-02-07 jeu. 15:42 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Traitement d'image avec commentaires</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Raoul HATTERER" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Traitement d'image avec commentaires
+<br />
+<span class="subtitle">(compléments d'informations à destination du professeur)</span>
+</h1>
+<div id="table-of-contents">
+<h2>Table des matières</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org243426a">1. Installation de PIL</a></li>
+<li><a href="#org3aefe53">2. La logique RVB</a></li>
+<li><a href="#orgbda6aaa">3. Image de départ</a></li>
+<li><a href="#orgd74c508">4. Comment lire un pixel</a></li>
+<li><a href="#org38de9e9">5. Comment écrire un pixel</a></li>
+<li><a href="#org1ca6731">6. Que fait le programme suivant ?</a></li>
+<li><a href="#org49fb19e">7. Passage d'une image en niveau de gris</a></li>
+</ul>
+</div>
+</div>
+<p>
+Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a>
+</p>
+
+<div id="outline-container-org243426a" class="outline-2">
+<h2 id="org243426a"><span class="section-number-2">1</span> Installation de PIL</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+À faire au préalable par le professeur.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell"> pip3 install pillow
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3aefe53" class="outline-2">
+<h2 id="org3aefe53"><span class="section-number-2">2</span> La logique RVB</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Activité de découverte du RVB: <a href="https://www.w3schools.com/colors/colors_rgb.asp">colorsRGB</a>
+</p>
+
+<p>
+Pour un pixel, calculer la moyenne des niveaux puis mettre les 3 valeurs à cette moyenne. Essayer pour plusieurs couleurs.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbda6aaa" class="outline-2">
+<h2 id="orgbda6aaa"><span class="section-number-2">3</span> Image de départ</h2>
+<div class="outline-text-2" id="text-3">
+
+<div class="figure">
+<p><img src="pomme.jpg" alt="pomme.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span>Image de départ (480px &times; 300px)</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd74c508" class="outline-2">
+<h2 id="orgd74c508"><span class="section-number-2">4</span> Comment lire un pixel</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
+<span style="color: #a0522d;">r</span>,<span style="color: #a0522d;">v</span>,<span style="color: #a0522d;">b</span>=img.getpixel((100,250))
+<span style="color: #a020f0;">print</span>(<span style="color: #8b2252;">"canal rouge : "</span>,r,<span style="color: #8b2252;">"canal vert : "</span>,v,<span style="color: #8b2252;">"canal bleu : "</span>,b)
+</pre>
+</div>
+
+<pre class="example">
+('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org38de9e9" class="outline-2">
+<h2 id="org38de9e9"><span class="section-number-2">5</span> Comment écrire un pixel</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
+img.putpixel((5,5),(255,0,0))
+img.show()
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org1ca6731" class="outline-2">
+<h2 id="org1ca6731"><span class="section-number-2">6</span> Que fait le programme suivant ?</h2>
+<div class="outline-text-2" id="text-6">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image <span style="color: #b22222;"># </span><span style="color: #b22222;">Importation de la librairie PILLOW (gestion image)</span>
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>) <span style="color: #b22222;"># </span><span style="color: #b22222;">Mise en m&#233;moire dans la variable "img" le fichier pomme.jpg qui doit &#234;tre dans le m&#234;me r&#233;pertoire que le programme</span>
+<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode size aplliqu&#233;e &#224; la variable img qui renvoie la largeur et la hauteur de l'image</span>
+<span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image): <span style="color: #b22222;"># </span><span style="color: #b22222;">Pour chaque ligne de 0 &#224; hauteur de l'image</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image): <span style="color: #b22222;">#</span><span style="color: #b22222;">Pour chaque colonne de 0 &#224; la largeur de chaque ligne</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y)) <span style="color: #b22222;">#</span><span style="color: #b22222;">M&#233;thode getpixels appliqu&#233;e &#224; la variable img &#224; la position x,y qui renvoie les valeurs r,g,b du pixel.</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_rouge</span>=vert <span style="color: #b22222;">#</span><span style="color: #b22222;">le vert devient rouge</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_vert</span>=bleu <span style="color: #b22222;">#</span><span style="color: #b22222;">le bleu devient vert</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_bleu</span>=rouge <span style="color: #b22222;">#</span><span style="color: #b22222;">le rouge devient bleu</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) <span style="color: #b22222;">#</span><span style="color: #b22222;">M&#233;thode putpixels appliqu&#233;e &#224; la variable img &#224; la position x,y qui remplace les valeurs r,g,b du pixel.</span>
+img.show() <span style="color: #b22222;">#</span><span style="color: #b22222;">affichage de l'image</span>
+img.save(<span style="color: #8b2252;">"pommeMystere.jpg"</span>) <span style="color: #b22222;">#</span><span style="color: #b22222;">sauvegarde de l'image obtenue</span>
+</pre>
+</div>
+
+
+<p>
+On analyse le code ci-dessus qui servira de base pour le défi suivant.
+</p>
+
+
+<div class="figure">
+<p><img src="pommeMystere.jpg" alt="pommeMystere.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;2&nbsp;: </span>Résultat du programme mystère</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org49fb19e" class="outline-2">
+<h2 id="org49fb19e"><span class="section-number-2">7</span> Passage d'une image en niveau de gris</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+</p>
+
+<p>
+Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
+</p>
+
+<p>
+Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils doivent alors programmer le passage d'une image couleur à une image en niveaux de gris.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
+<span style="color: #a0522d;">largeur_image</span>=480
+<span style="color: #a0522d;">hauteur_image</span>=300
+<span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+img.show()
+img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="pommegrise.jpg" alt="pommegrise.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;3&nbsp;: </span>Image en niveaux de gris</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Auteur: Raoul HATTERER</p>
+<p class="date">Created: 2019-02-07 jeu. 15:42</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
