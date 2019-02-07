@@ -1,4 +1,4 @@
-% Created 2019-02-07 jeu. 14:39
+% Created 2019-02-07 jeu. 14:51
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -37,7 +37,7 @@
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
 \section{Installation de PIL}
-\label{sec:orgb2ae7e2}
+\label{sec:org907fecf}
 
 À faire au préalable par le professeur.
 
@@ -47,7 +47,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Image de départ}
-\label{sec:org840a73b}
+\label{sec:org61c2665}
 
 \begin{figure}[htbp]
 \centering
@@ -57,7 +57,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Comment lire un pixel}
-\label{sec:org12a52f7}
+\label{sec:orgdbe9951}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -74,7 +74,7 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:org006845f}
+\label{sec:orga4d1006}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -85,13 +85,12 @@ img.show()
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:org06eb80c}
+\label{sec:orgc0550a4}
 
 \begin{minted}[]{python}
 from PIL import Image
 img = Image.open("pomme.jpg")
-largeur_image=480
-hauteur_image=300
+largeur_image,hauteur_image=img.size
 for y in range(hauteur_image):
     for x in range(largeur_image):
         rouge,vert,bleu=img.getpixel((x,y))
@@ -114,7 +113,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 
 \section{Passage d'une image en niveau de gris}
-\label{sec:orgfd80acc}
+\label{sec:orgc452023}
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
 
