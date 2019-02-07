@@ -3,7 +3,7 @@
 #+LATEX_HEADER: \usepackage[AUTO]{babel}
 #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
 #+LaTeX_HEADER: \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
-#+TITLE: Traitement d'image 
+#+TITLE: Traitement d'image avec commentaires
 #+SUBTITLE: (1 séance = 1h30)
 #+AUTHOR: Raoul HATTERER
 
