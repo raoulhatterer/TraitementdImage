@@ -28,7 +28,7 @@ Essayer pour plusieurs couleurs.
 
 * Image de départ
 
-#+CAPTION: Image de départ (480px \times 300px)
+#+CAPTION: Image de départ
 [[file:pomme.jpg]]
 
 

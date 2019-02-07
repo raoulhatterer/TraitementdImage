@@ -3,6 +3,7 @@
 #+LATEX_HEADER: \usepackage[AUTO]{babel}
 #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
 #+LaTeX_HEADER: \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
+#+LATEX_HEADER: \usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
 #+TITLE: Traitement d'image avec commentaires
 #+SUBTITLE: (compléments d'informations à destination du professeur)
 #+AUTHOR: Raoul HATTERER
@@ -23,12 +24,14 @@ Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_ph
 
 * Codage RVB et niveau de gris
 
-Aller sur [[https://www.w3schools.com/colors/colors_rgb.asp][colors RGB]] et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
-Essayer pour plusieurs couleurs.
+- Aller sur [[https://www.w3schools.com/colors/colors_rgb.asp][colors RGB]] et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+- Essayer pour plusieurs couleurs.
+
 
 * Image de départ
 
-#+CAPTION: Image de départ (480px \times 300px)
+#+CAPTION: Image de départ
+#+ATTR_LATEX: :width 6cm
 [[file:pomme.jpg]]
 
 
@@ -62,36 +65,46 @@ img.show()
 
 * Que fait le programme suivant ?
 
-#+begin_src python  :tangle  mystereCommente.py 
+#+begin_src python :results output :exports output  :tangle  mystereCommente.py 
 from PIL import Image                        # Importation de la librairie PILLOW (gestion image)
-img = Image.open("pomme.jpg")                # Mise en mémoire dans la variable "img" du fichier pomme.jpg qui doit être dans le même répertoire que le programme
-largeur_image,hauteur_image=img.size         # Méthode size aplliquée à la variable img qui renvoie la largeur et la hauteur de l'image
+img = Image.open("pomme.jpg")                # Mise en mémoire dans la variable "img" du fichier 
+#--------------------------------------------# pomme.jpg qui doit être dans le même répertoire que
+#--------------------------------------------# le programme
+largeur_image,hauteur_image=img.size         # Python autorise les affectations multiples.
+#--------------------------------------------# img.size est un attribut (une variable intrinsèque
+#--------------------------------------------# à la variable img) avec les dimensions de l'image
+#--------------------------------------------# sous forme de tupple (= liste non modifiable). 
 
 for y in range(hauteur_image):               # Boucle pour parcourir les toutes les lignes
-    for x in range(largeur_image):           # Boucle inbriquée pour parcourir les pixels de la ligne en cours
-        rouge,vert,bleu=img.getpixel((x,y))  # Méthode getpixels appliquée à la variable img qui renvoie les valeurs r,g,b du pixel à la position x,y
-        nouveau_rouge=vert                   # Le vert devient rouge
-        nouveau_vert=bleu                    # Le bleu devient vert
-        nouveau_bleu=rouge                   # Le rouge devient bleu
-        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) # Méthode putpixel qui remplace les valeurs R, V, B du pixel à la position x,y 
+    for x in range(largeur_image):           # Boucle imbriquée pour parcourir les pixels de la
+#--------------------------------------------# ligne en cours
+        rouge,vert,bleu=img.getpixel((x,y))  # Méthode getpixels() appliquée à la variable img qui
+#--------------------------------------------# renvoie les valeurs R,V,B du pixel à la position x,y
+        nouveau_rouge=vert                   # Le vert prend l'intensité du rouge
+        nouveau_vert=bleu                    # Le bleu prend l'intensité du vert
+        nouveau_bleu=rouge                   # Le rouge prend l'intensité du bleu
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) # Méthode putpixel()
+#--------------------------------------------# qui remplace les valeurs R, V, B du pixel en x,y 
 
 img.show()                                   # Affichage de l'image
 img.save("pommeMystere.jpg")                 # Sauvegarde de l'image obtenue
+print(img.size)                              # Affichage du tupple avec la taille de l'image 
 #+end_src
 
 #+RESULTS:
-: None
+: (480, 300)
 
 
 On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 #+CAPTION: Résultat du programme mystère
+#+ATTR_LATEX: :width 6cm
 [[file:pommeMystere.jpg]]
 
 
 * Passage d'une image en niveau de gris
 
-Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
 Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
 
@@ -101,8 +114,7 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 #+begin_src python  :tangle pommegrise.py
 from PIL import Image
 img = Image.open("pomme.jpg")
-largeur_image=480
-hauteur_image=300
+largeur_image,hauteur_image=img.size
 
 for y in range(hauteur_image):
     for x in range(largeur_image):
@@ -120,13 +132,14 @@ img.save("pommegrise.jpg")
 : None
 
 #+CAPTION: Image en niveaux de gris
+#+ATTR_LATEX: :width 6cm
 [[file:pommegrise.jpg]]
 
 
 * Passage d'une image en vrai niveau de gris (sans informations triplées) 
 
 
-** Utilisation du mode =L= (luminance) pour les images en nuances de gris= 
+** Utilisation du mode =L= (luminance) pour les images en nuances de gris 
 
 #+begin_src python  :tangle pommegriseL.py
 from PIL import Image
@@ -141,10 +154,10 @@ img.save("pommegriseL.jpg")
 Comparer la taille des différents fichiers. Conclure.
 
 #+CAPTION: Image en niveaux de gris (sans redondance)
+#+ATTR_LATEX: :width 6cm
 [[file:pommegriseL.jpg]]
 
-
-/Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd. Remarque : Pas trois fois moins lourd ; notamment car le format jpeg est compressé./
+/Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd./
 
 ** Existe-t-il d'autres modes ?
 
@@ -189,11 +202,12 @@ img.save("pommeNegatif.jpg")
 : None
 
 #+CAPTION: Négatif
+#+ATTR_LATEX: :width 6cm
 [[file:pommeNegatif.jpg]]
 
 ** Diagonale
 
-Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveau de gris en-dessous
+Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 
 #+begin_src python  :tangle pommemisgrise.py
 from PIL import Image
@@ -201,13 +215,13 @@ img = Image.open("pomme.jpg")
 largeur_image,hauteur_image=img.size
 
 for y in range(hauteur_image):
-    tailleDiag=int((largeur_image/hauteur_image)*y)
+    tailleDiag=y*largeur_image//hauteur_image
     for x in range(tailleDiag):
-        r,v,b=img.getpixel((x,y))
-        n_r=(v+b+r)//3
-        n_v=(v+b+r)//3
-        n_b=(v+b+r)//3
-        img.putpixel((x,y),(n_r,n_v,n_b))
+       rouge,vert,bleu=img.getpixel((x,y))
+       nouveau_rouge=(vert+bleu+rouge)//3
+       nouveau_vert=(vert+bleu+rouge)//3
+       nouveau_bleu=(vert+bleu+rouge)//3
+       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 
 img.show()
 img.save("pommemisgrise.jpg")
@@ -216,4 +230,7 @@ img.save("pommemisgrise.jpg")
 #+RESULTS:
 : None
 
+#+CAPTION: Pomme coupée
+#+ATTR_LATEX: :width 6cm
 [[file:pommemisgrise.jpg]]
+

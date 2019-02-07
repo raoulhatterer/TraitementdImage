@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<!-- 2019-02-07 jeu. 19:41 -->
+<!-- 2019-02-08 ven. 00:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Traitement d'image avec commentaires</title>
@@ -250,23 +250,23 @@ for the JavaScript code in this tag.
 <h2>Table des matières</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8abfcd3">1. Installation de PIL</a></li>
-<li><a href="#org5b4ed54">2. Codage RVB et niveau de gris</a></li>
-<li><a href="#orgd9982af">3. Image de départ</a></li>
-<li><a href="#orgf9ab5bc">4. Comment lire un pixel</a></li>
-<li><a href="#orge31dcd5">5. Comment écrire un pixel</a></li>
-<li><a href="#org2e85b0a">6. Que fait le programme suivant ?</a></li>
-<li><a href="#orgc605c47">7. Passage d'une image en niveau de gris</a></li>
-<li><a href="#orgb38fc05">8. Passage d'une image en vrai niveau de gris (sans informations triplées)</a>
+<li><a href="#org2972d5e">1. Installation de PIL</a></li>
+<li><a href="#org717d4b6">2. Codage RVB et niveau de gris</a></li>
+<li><a href="#org60bb93c">3. Image de départ</a></li>
+<li><a href="#orgc0779ee">4. Comment lire un pixel</a></li>
+<li><a href="#org8805681">5. Comment écrire un pixel</a></li>
+<li><a href="#orga5e1942">6. Que fait le programme suivant ?</a></li>
+<li><a href="#orgd112648">7. Passage d'une image en niveau de gris</a></li>
+<li><a href="#orgf5c47c0">8. Passage d'une image en vrai niveau de gris (sans informations triplées)</a>
 <ul>
-<li><a href="#orga186170">8.1. Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris=</a></li>
-<li><a href="#orgac7cc03">8.2. Existe-t-il d'autres modes ?</a></li>
+<li><a href="#org40c1f67">8.1. Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</a></li>
+<li><a href="#org54a6000">8.2. Existe-t-il d'autres modes ?</a></li>
 </ul>
 </li>
-<li><a href="#orgadea85c">9. Pour aller plus loin</a>
+<li><a href="#orgabda4a8">9. Pour aller plus loin</a>
 <ul>
-<li><a href="#org3539012">9.1. Créer une image en négatif</a></li>
-<li><a href="#orgac0c743">9.2. Diagonale</a></li>
+<li><a href="#org21def04">9.1. Créer une image en négatif</a></li>
+<li><a href="#org036da7a">9.2. Diagonale</a></li>
 </ul>
 </li>
 </ul>
@@ -276,8 +276,8 @@ for the JavaScript code in this tag.
 Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a>
 </p>
 
-<div id="outline-container-org8abfcd3" class="outline-2">
-<h2 id="org8abfcd3"><span class="section-number-2">1</span> Installation de PIL</h2>
+<div id="outline-container-org2972d5e" class="outline-2">
+<h2 id="org2972d5e"><span class="section-number-2">1</span> Installation de PIL</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 À faire au préalable par le professeur.
@@ -292,31 +292,32 @@ Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site
 
 
 
-<div id="outline-container-org5b4ed54" class="outline-2">
-<h2 id="org5b4ed54"><span class="section-number-2">2</span> Codage RVB et niveau de gris</h2>
+<div id="outline-container-org717d4b6" class="outline-2">
+<h2 id="org717d4b6"><span class="section-number-2">2</span> Codage RVB et niveau de gris</h2>
 <div class="outline-text-2" id="text-2">
-<p>
-Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
-Essayer pour plusieurs couleurs.
-</p>
+<ul class="org-ul">
+<li>Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.</li>
+<li>Essayer pour plusieurs couleurs.</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgd9982af" class="outline-2">
-<h2 id="orgd9982af"><span class="section-number-2">3</span> Image de départ</h2>
+
+<div id="outline-container-org60bb93c" class="outline-2">
+<h2 id="org60bb93c"><span class="section-number-2">3</span> Image de départ</h2>
 <div class="outline-text-2" id="text-3">
 
 <div class="figure">
 <p><img src="pomme.jpg" alt="pomme.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span>Image de départ (480px &times; 300px)</p>
+<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span>Image de départ</p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgf9ab5bc" class="outline-2">
-<h2 id="orgf9ab5bc"><span class="section-number-2">4</span> Comment lire un pixel</h2>
+<div id="outline-container-orgc0779ee" class="outline-2">
+<h2 id="orgc0779ee"><span class="section-number-2">4</span> Comment lire un pixel</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
@@ -331,14 +332,14 @@ Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment l
 </div>
 
 <pre class="example">
-canal rouge :  19 canal vert :  88 canal bleu :  192
+('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
 </pre>
 </div>
 </div>
 
 
-<div id="outline-container-orge31dcd5" class="outline-2">
-<h2 id="orge31dcd5"><span class="section-number-2">5</span> Comment écrire un pixel</h2>
+<div id="outline-container-org8805681" class="outline-2">
+<h2 id="org8805681"><span class="section-number-2">5</span> Comment écrire un pixel</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -351,26 +352,40 @@ img.show()
 </div>
 
 
-<div id="outline-container-org2e85b0a" class="outline-2">
-<h2 id="org2e85b0a"><span class="section-number-2">6</span> Que fait le programme suivant ?</h2>
+<div id="outline-container-orga5e1942" class="outline-2">
+<h2 id="orga5e1942"><span class="section-number-2">6</span> Que fait le programme suivant ?</h2>
 <div class="outline-text-2" id="text-6">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image                        <span style="color: #b22222;"># </span><span style="color: #b22222;">Importation de la librairie PILLOW (gestion image)</span>
-<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)                <span style="color: #b22222;"># </span><span style="color: #b22222;">Mise en m&#233;moire dans la variable "img" du fichier pomme.jpg qui doit &#234;tre dans le m&#234;me r&#233;pertoire que le programme</span>
-<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size         <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode size aplliqu&#233;e &#224; la variable img qui renvoie la largeur et la hauteur de l'image</span>
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)                <span style="color: #b22222;"># </span><span style="color: #b22222;">Mise en m&#233;moire dans la variable "img" du fichier </span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# pomme.jpg qui doit &#234;tre dans le m&#234;me r&#233;pertoire que</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# le programme</span>
+<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size         <span style="color: #b22222;"># </span><span style="color: #b22222;">Python autorise les affectations multiples.</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# img.size est un attribut (une variable intrins&#232;que</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# &#224; la variable img) avec les dimensions de l'image</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# sous forme de tupple (= liste non modifiable). </span>
 
 <span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):               <span style="color: #b22222;"># </span><span style="color: #b22222;">Boucle pour parcourir les toutes les lignes</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):           <span style="color: #b22222;"># </span><span style="color: #b22222;">Boucle inbriqu&#233;e pour parcourir les pixels de la ligne en cours</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))  <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode getpixels appliqu&#233;e &#224; la variable img qui renvoie les valeurs r,g,b du pixel &#224; la position x,y</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_rouge</span>=vert                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le vert devient rouge</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_vert</span>=bleu                    <span style="color: #b22222;"># </span><span style="color: #b22222;">Le bleu devient vert</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_bleu</span>=rouge                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le rouge devient bleu</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode putpixel qui remplace les valeurs R, V, B du pixel &#224; la position x,y </span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):           <span style="color: #b22222;"># </span><span style="color: #b22222;">Boucle imbriqu&#233;e pour parcourir les pixels de la</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# ligne en cours</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))  <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode getpixels() appliqu&#233;e &#224; la variable img qui</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# renvoie les valeurs R,V,B du pixel &#224; la position x,y</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_rouge</span>=vert                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le vert prend l'intensit&#233; du rouge</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_vert</span>=bleu                    <span style="color: #b22222;"># </span><span style="color: #b22222;">Le bleu prend l'intensit&#233; du vert</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_bleu</span>=rouge                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le rouge prend l'intensit&#233; du bleu</span>
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode putpixel()</span>
+<span style="color: #b22222;">#</span><span style="color: #b22222;">--------------------------------------------# qui remplace les valeurs R, V, B du pixel en x,y </span>
 
 img.show()                                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Affichage de l'image</span>
 img.save(<span style="color: #8b2252;">"pommeMystere.jpg"</span>)                 <span style="color: #b22222;"># </span><span style="color: #b22222;">Sauvegarde de l'image obtenue</span>
+<span style="color: #a020f0;">print</span>(img.size)                              <span style="color: #b22222;"># </span><span style="color: #b22222;">Affichage du tupple avec la taille de l'image </span>
 </pre>
 </div>
+
+<pre class="example">
+(480, 300)
+</pre>
+
 
 
 <p>
@@ -387,11 +402,11 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 </div>
 
 
-<div id="outline-container-orgc605c47" class="outline-2">
-<h2 id="orgc605c47"><span class="section-number-2">7</span> Passage d'une image en niveau de gris</h2>
+<div id="outline-container-orgd112648" class="outline-2">
+<h2 id="orgd112648"><span class="section-number-2">7</span> Passage d'une image en niveau de gris</h2>
 <div class="outline-text-2" id="text-7">
 <p>
-Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 </p>
 
 <p>
@@ -406,8 +421,7 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
 <span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
-<span style="color: #a0522d;">largeur_image</span>=480
-<span style="color: #a0522d;">hauteur_image</span>=300
+<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
 
 <span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
 <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
@@ -432,12 +446,12 @@ img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
 </div>
 
 
-<div id="outline-container-orgb38fc05" class="outline-2">
-<h2 id="orgb38fc05"><span class="section-number-2">8</span> Passage d'une image en vrai niveau de gris (sans informations triplées)</h2>
+<div id="outline-container-orgf5c47c0" class="outline-2">
+<h2 id="orgf5c47c0"><span class="section-number-2">8</span> Passage d'une image en vrai niveau de gris (sans informations triplées)</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-orga186170" class="outline-3">
-<h3 id="orga186170"><span class="section-number-3">8.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris=</h3>
+<div id="outline-container-org40c1f67" class="outline-3">
+<h3 id="org40c1f67"><span class="section-number-3">8.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -458,15 +472,14 @@ Comparer la taille des différents fichiers. Conclure.
 <p><span class="figure-number">Figure&nbsp;4&nbsp;: </span>Image en niveaux de gris (sans redondance)</p>
 </div>
 
-
 <p>
-<i>Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd. Remarque : Pas trois fois moins lourd ; notamment car le format jpeg est compressé.</i>
+<i>Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd.</i>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgac7cc03" class="outline-3">
-<h3 id="orgac7cc03"><span class="section-number-3">8.2</span> Existe-t-il d'autres modes ?</h3>
+<div id="outline-container-org54a6000" class="outline-3">
+<h3 id="org54a6000"><span class="section-number-3">8.2</span> Existe-t-il d'autres modes ?</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#modes">modes</a> supportés par <code>Pillow</code> sont : 
@@ -491,12 +504,12 @@ Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#mode
 
 
 
-<div id="outline-container-orgadea85c" class="outline-2">
-<h2 id="orgadea85c"><span class="section-number-2">9</span> Pour aller plus loin</h2>
+<div id="outline-container-orgabda4a8" class="outline-2">
+<h2 id="orgabda4a8"><span class="section-number-2">9</span> Pour aller plus loin</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org3539012" class="outline-3">
-<h3 id="org3539012"><span class="section-number-3">9.1</span> Créer une image en négatif</h3>
+<div id="outline-container-org21def04" class="outline-3">
+<h3 id="org21def04"><span class="section-number-3">9.1</span> Créer une image en négatif</h3>
 <div class="outline-text-3" id="text-9-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -525,11 +538,11 @@ img.save(<span style="color: #8b2252;">"pommeNegatif.jpg"</span>)
 </div>
 </div>
 
-<div id="outline-container-orgac0c743" class="outline-3">
-<h3 id="orgac0c743"><span class="section-number-3">9.2</span> Diagonale</h3>
+<div id="outline-container-org036da7a" class="outline-3">
+<h3 id="org036da7a"><span class="section-number-3">9.2</span> Diagonale</h3>
 <div class="outline-text-3" id="text-9-2">
 <p>
-Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveau de gris en-dessous
+Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 </p>
 
 <div class="org-src-container">
@@ -538,13 +551,13 @@ Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui
 <span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
 
 <span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
-<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">tailleDiag</span>=<span style="color: #483d8b;">int</span>((largeur_image/hauteur_image)*y)
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">tailleDiag</span>=y*largeur_image//hauteur_image
 <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(tailleDiag):
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">r</span>,<span style="color: #a0522d;">v</span>,<span style="color: #a0522d;">b</span>=img.getpixel((x,y))
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">n_r</span>=(v+b+r)//3
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">n_v</span>=(v+b+r)//3
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">n_b</span>=(v+b+r)//3
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(n_r,n_v,n_b))
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 
 img.show()
 img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
@@ -555,6 +568,7 @@ img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
 <div class="figure">
 <p><img src="pommemisgrise.jpg" alt="pommemisgrise.jpg" />
 </p>
+<p><span class="figure-number">Figure&nbsp;6&nbsp;: </span>Pomme coupée</p>
 </div>
 </div>
 </div>
@@ -562,7 +576,7 @@ img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
 </div>
 <div id="postamble" class="status">
 <p class="author">Auteur: Raoul HATTERER</p>
-<p class="date">Created: 2019-02-07 jeu. 19:41</p>
+<p class="date">Created: 2019-02-08 ven. 00:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
