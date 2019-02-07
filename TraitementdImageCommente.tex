@@ -1,4 +1,4 @@
-% Created 2019-02-07 jeu. 15:37
+% Created 2019-02-07 jeu. 19:41
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -37,7 +37,7 @@
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
 \section{Installation de PIL}
-\label{sec:org729df9a}
+\label{sec:orge25863d}
 
 À faire au préalable par le professeur.
 
@@ -45,15 +45,16 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
  pip3 install pillow
 \end{minted}
 
-\section{La logique RVB}
-\label{sec:org5c1f826}
 
-Activité de découverte du RVB: \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colorsRGB}
 
-Pour un pixel, calculer la moyenne des niveaux puis mettre les 3 valeurs à cette moyenne. Essayer pour plusieurs couleurs.
+\section{Codage RVB et niveau de gris}
+\label{sec:orgfba8e4a}
+
+Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+Essayer pour plusieurs couleurs.
 
 \section{Image de départ}
-\label{sec:orgd15b99e}
+\label{sec:org3c6010e}
 
 \begin{figure}[htbp]
 \centering
@@ -63,7 +64,7 @@ Pour un pixel, calculer la moyenne des niveaux puis mettre les 3 valeurs à cett
 
 
 \section{Comment lire un pixel}
-\label{sec:orgad74a49}
+\label{sec:orgf8ac23b}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -75,12 +76,12 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 \end{minted}
 
 \begin{verbatim}
-('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
+canal rouge :  19 canal vert :  88 canal bleu :  192
 \end{verbatim}
 
 
 \section{Comment écrire un pixel}
-\label{sec:org5013023}
+\label{sec:org019f0a7}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -91,21 +92,23 @@ img.show()
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:org9d9c5ab}
+\label{sec:orgb906dce}
 
 \begin{minted}[]{python}
-from PIL import Image # Importation de la librairie PILLOW (gestion image)
-img = Image.open("pomme.jpg") # Mise en mémoire dans la variable "img" le fichier pomme.jpg qui doit être dans le même répertoire que le programme
-largeur_image,hauteur_image=img.size # Méthode size aplliquée à la variable img qui renvoie la largeur et la hauteur de l'image
-for y in range(hauteur_image): # Pour chaque ligne de 0 à hauteur de l'image
-    for x in range(largeur_image): #Pour chaque colonne de 0 à la largeur de chaque ligne
-        rouge,vert,bleu=img.getpixel((x,y)) #Méthode getpixels appliquée à la variable img à la position x,y qui renvoie les valeurs r,g,b du pixel.
-        nouveau_rouge=vert #le vert devient rouge
-        nouveau_vert=bleu #le bleu devient vert
-        nouveau_bleu=rouge #le rouge devient bleu
-        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) #Méthode putpixels appliquée à la variable img à la position x,y qui remplace les valeurs r,g,b du pixel.
-img.show() #affichage de l'image
-img.save("pommeMystere.jpg") #sauvegarde de l'image obtenue
+from PIL import Image                        # Importation de la librairie PILLOW (gestion image)
+img = Image.open("pomme.jpg")                # Mise en mémoire dans la variable "img" du fichier pomme.jpg qui doit être dans le même répertoire que le programme
+largeur_image,hauteur_image=img.size         # Méthode size aplliquée à la variable img qui renvoie la largeur et la hauteur de l'image
+
+for y in range(hauteur_image):               # Boucle pour parcourir les toutes les lignes
+    for x in range(largeur_image):           # Boucle inbriquée pour parcourir les pixels de la ligne en cours
+        rouge,vert,bleu=img.getpixel((x,y))  # Méthode getpixels appliquée à la variable img qui renvoie les valeurs r,g,b du pixel à la position x,y
+        nouveau_rouge=vert                   # Le vert devient rouge
+        nouveau_vert=bleu                    # Le bleu devient vert
+        nouveau_bleu=rouge                   # Le rouge devient bleu
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) # Méthode putpixel qui remplace les valeurs R, V, B du pixel à la position x,y 
+
+img.show()                                   # Affichage de l'image
+img.save("pommeMystere.jpg")                 # Sauvegarde de l'image obtenue
 \end{minted}
 
 
@@ -119,7 +122,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 
 \section{Passage d'une image en niveau de gris}
-\label{sec:org45bf4bd}
+\label{sec:org7bb459f}
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
 
@@ -133,6 +136,7 @@ from PIL import Image
 img = Image.open("pomme.jpg")
 largeur_image=480
 hauteur_image=300
+
 for y in range(hauteur_image):
     for x in range(largeur_image):
        rouge,vert,bleu=img.getpixel((x,y))
@@ -140,6 +144,7 @@ for y in range(hauteur_image):
        nouveau_vert=(vert+bleu+rouge)//3
        nouveau_bleu=(vert+bleu+rouge)//3
        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+
 img.show()
 img.save("pommegrise.jpg")
 \end{minted}
@@ -149,4 +154,107 @@ img.save("pommegrise.jpg")
 \includegraphics[width=.9\linewidth]{pommegrise.jpg}
 \caption{Image en niveaux de gris}
 \end{figure}
+
+
+\section{Passage d'une image en vrai niveau de gris (sans informations triplées)}
+\label{sec:org1941b7e}
+
+
+\subsection{Utilisation du mode \texttt{L} (luminance) pour les images en nuances de gris=}
+\label{sec:org6b27ac4}
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg").convert("L")
+img.show()
+img.save("pommegriseL.jpg")
+\end{minted}
+
+Comparer la taille des différents fichiers. Conclure.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommegriseL.jpg}
+\caption{Image en niveaux de gris (sans redondance)}
+\end{figure}
+
+
+\emph{Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd. Remarque : Pas trois fois moins lourd ; notamment car le format jpeg est compressé.}
+
+\subsection{Existe-t-il d'autres modes ?}
+\label{sec:org22a6150}
+
+Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}{modes} supportés par \texttt{Pillow} sont : 
+
+\begin{itemize}
+\item \texttt{1} (1-bit pixels, black and white, stored with one pixel per byte)
+\item \texttt{L} (8-bit pixels, black and white)
+\item \texttt{P} (8-bit pixels, mapped to any other mode using a color palette)
+\item \texttt{RGB} (3x8-bit pixels, true color)
+\item \texttt{RGBA} (4x8-bit pixels, true color with transparency mask)
+\item \texttt{CMYK} (4x8-bit pixels, color separation)
+\item \texttt{YCbCr} (3x8-bit pixels, color video format)
+\item \texttt{LAB} (3x8-bit pixels, the L*a*b color space)
+\item \texttt{HSV} (3x8-bit pixels, Hue, Saturation, Value color space)
+\item \texttt{I} (32-bit signed integer pixels)
+\item \texttt{F} (32-bit floating point pixels)
+\end{itemize}
+
+
+
+\section{Pour aller plus loin}
+\label{sec:org0d16e07}
+
+\subsection{Créer une image en négatif}
+\label{sec:org4daf353}
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        rouge,vert,bleu=img.getpixel((x,y))
+        nouveau_rouge=255-rouge
+        nouveau_vert=255-vert
+        nouveau_bleu=255-bleu
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+
+img.show()
+img.save("pommeNegatif.jpg")
+\end{minted}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommeNegatif.jpg}
+\caption{Négatif}
+\end{figure}
+
+\subsection{Diagonale}
+\label{sec:org51b03b7}
+
+Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveau de gris en-dessous
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+
+for y in range(hauteur_image):
+    tailleDiag=int((largeur_image/hauteur_image)*y)
+    for x in range(tailleDiag):
+        r,v,b=img.getpixel((x,y))
+        n_r=(v+b+r)//3
+        n_v=(v+b+r)//3
+        n_b=(v+b+r)//3
+        img.putpixel((x,y),(n_r,n_v,n_b))
+
+img.show()
+img.save("pommemisgrise.jpg")
+\end{minted}
+
+\begin{center}
+\includegraphics[width=.9\linewidth]{pommemisgrise.jpg}
+\end{center}
 \end{document}
