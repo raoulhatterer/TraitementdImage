@@ -1,4 +1,4 @@
-% Created 2019-02-05 mar. 23:00
+% Created 2019-02-07 jeu. 14:39
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -37,7 +37,7 @@
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
 \section{Installation de PIL}
-\label{sec:orgb55ae5c}
+\label{sec:orgb2ae7e2}
 
 À faire au préalable par le professeur.
 
@@ -47,7 +47,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Image de départ}
-\label{sec:org77e2dba}
+\label{sec:org840a73b}
 
 \begin{figure}[htbp]
 \centering
@@ -57,7 +57,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Comment lire un pixel}
-\label{sec:org3dbb6ed}
+\label{sec:org12a52f7}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -74,7 +74,7 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:org8869b37}
+\label{sec:org006845f}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -85,7 +85,7 @@ img.show()
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:orgf4386f6}
+\label{sec:org06eb80c}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -94,11 +94,11 @@ largeur_image=480
 hauteur_image=300
 for y in range(hauteur_image):
     for x in range(largeur_image):
-        r,v,b=img.getpixel((x,y))
-        n_r=v
-        n_v=b
-        n_b=r
-        img.putpixel((x,y),(n_r,n_v,n_b))
+        rouge,vert,bleu=img.getpixel((x,y))
+        nouveau_rouge=vert
+        nouveau_vert=bleu
+        nouveau_bleu=rouge
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 img.show()
 img.save("pommeMystere.jpg")
 \end{minted}
@@ -114,7 +114,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 
 \section{Passage d'une image en niveau de gris}
-\label{sec:org15181f8}
+\label{sec:orgfd80acc}
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
 
@@ -130,11 +130,11 @@ largeur_image=480
 hauteur_image=300
 for y in range(hauteur_image):
     for x in range(largeur_image):
-        r,v,b=img.getpixel((x,y))
-        n_r=(v+b+r)//3
-        n_v=(v+b+r)//3
-        n_b=(v+b+r)//3
-        img.putpixel((x,y),(n_r,n_v,n_b))
+       rouge,vert,bleu=img.getpixel((x,y))
+       nouveau_rouge=(vert+bleu+rouge)//3
+       nouveau_vert=(vert+bleu+rouge)//3
+       nouveau_bleu=(vert+bleu+rouge)//3
+       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 img.show()
 img.save("pommegrise.jpg")
 \end{minted}
