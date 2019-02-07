@@ -112,4 +112,40 @@ img.save("pommegrise.jpg")
 #+CAPTION: Image en niveaux de gris
 [[file:pommegrise.jpg]]
 
+* Pour aller plus loin
+
+Créer une image en négatif 
+
+#+begin_src python  :tangle pommegrise.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        rouge,vert,bleu=img.getpixel((x,y))
+        nouveau_rouge=255-rouge
+        nouveau_vert=255-vert
+        nouveau_bleu=255-bleu
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+img.show()
+img.save("pommeNegatif.jpg")
+#+end_src
+
+Créer le programme qui garde l'image d'origine au-dessus de la diagonale et qui transforme en niveau de gris en-dessous
+
+#+begin_src python  :tangle pommegrise.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+for y in range(hauteur_image):
+    tailleDiag=int((largeur_image/hauteur_image)*y)
+    for x in range(tailleDiag):
+        r,v,b=img.getpixel((x,y))
+        n_r=(v+b+r)//3
+        n_v=(v+b+r)//3
+        n_b=(v+b+r)//3
+        img.putpixel((x,y),(n_r,n_v,n_b))
+img.show()
+img.save("pommegrise.jpg")
+#+end_src
 
