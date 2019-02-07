@@ -20,6 +20,12 @@ Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_ph
 #+end_src
 
 
+* Codage RVB et niveau de gris
+
+Aller sur [[https://www.w3schools.com/colors/colors_rgb.asp][colors RGB]] et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+Essayer pour plusieurs couleurs.
+
+
 * Image de départ
 
 #+CAPTION: Image de départ (480px \times 300px)
@@ -112,10 +118,11 @@ img.save("pommegrise.jpg")
 #+CAPTION: Image en niveaux de gris
 [[file:pommegrise.jpg]]
 
+
 * Passage d'une image en vrai niveau de gris (sans informations triplées) 
 
 
-#+begin_src python  :tangle pommegrise.py
+#+begin_src python  :tangle pommegriseL.py
 from PIL import Image
 img = Image.open("pomme.jpg")
 largeur_image,hauteur_image=img.size
@@ -128,6 +135,15 @@ for y in range(hauteur_image):
         img2.putpixel((x,y),(niveau_gris))
 
 img2.show()
-img2.save("pommeMystereVraiNiveauDeGris.jpg")
-
+img2.save("pommegriseL.jpg")
 #+end_src
+
+#+RESULTS:
+: None
+
+Comparer la taille des différents fichiers. Conclure.
+
+#+CAPTION: Image en niveaux de gris (sans redondance)
+[[file:pommegriseL.jpg]]
+
+

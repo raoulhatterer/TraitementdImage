@@ -1,4 +1,4 @@
-% Created 2019-02-07 jeu. 14:51
+% Created 2019-02-07 jeu. 17:02
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -37,7 +37,7 @@
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
 \section{Installation de PIL}
-\label{sec:org907fecf}
+\label{sec:org2c21f8c}
 
 À faire au préalable par le professeur.
 
@@ -46,8 +46,15 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 \end{minted}
 
 
+\section{Codage RVB et niveau de gris}
+\label{sec:orga2489d6}
+
+Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+Essayer pour plusieurs couleurs.
+
+
 \section{Image de départ}
-\label{sec:org61c2665}
+\label{sec:orgbc2eab3}
 
 \begin{figure}[htbp]
 \centering
@@ -57,7 +64,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Comment lire un pixel}
-\label{sec:orgdbe9951}
+\label{sec:orgcd4cde0}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -74,7 +81,7 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:orga4d1006}
+\label{sec:orgf753664}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -85,7 +92,7 @@ img.show()
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:orgc0550a4}
+\label{sec:org6020abd}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -113,7 +120,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 
 \section{Passage d'une image en niveau de gris}
-\label{sec:orgc452023}
+\label{sec:org740a7b0}
 
 Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
 
@@ -142,5 +149,34 @@ img.save("pommegrise.jpg")
 \centering
 \includegraphics[width=.9\linewidth]{pommegrise.jpg}
 \caption{Image en niveaux de gris}
+\end{figure}
+
+
+\section{Passage d'une image en vrai niveau de gris (sans informations triplées)}
+\label{sec:org9c6bfe3}
+
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+img2 = Image.new("L",(largeur_image,hauteur_image))
+
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        rouge,vert,bleu=img.getpixel((x,y))
+        niveau_gris=(vert+bleu+rouge)//3
+        img2.putpixel((x,y),(niveau_gris))
+
+img2.show()
+img2.save("pommegriseL.jpg")
+\end{minted}
+
+Comparer la taille des différents fichiers. Conclure.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommegriseL.jpg}
+\caption{Image en niveaux de gris (sans redondance)}
 \end{figure}
 \end{document}
