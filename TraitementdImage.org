@@ -59,8 +59,7 @@ img.show()
 #+begin_src python  :tangle  mystere.py
 from PIL import Image
 img = Image.open("pomme.jpg")
-largeur_image=480
-hauteur_image=300
+largeur_image,hauteur_image=img.size
 for y in range(hauteur_image):
     for x in range(largeur_image):
         rouge,vert,bleu=img.getpixel((x,y))
