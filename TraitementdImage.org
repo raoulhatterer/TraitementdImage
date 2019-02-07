@@ -112,4 +112,22 @@ img.save("pommegrise.jpg")
 #+CAPTION: Image en niveaux de gris
 [[file:pommegrise.jpg]]
 
+* Passage d'une image en vrai niveau de gris (sans informations triplées) 
 
+
+#+begin_src python  :tangle pommegrise.py
+from PIL import Image
+img = Image.open("pomme.jpg")
+largeur_image,hauteur_image=img.size
+img2 = Image.new("L",(largeur_image,hauteur_image))
+
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+        rouge,vert,bleu=img.getpixel((x,y))
+        niveau_gris=(vert+bleu+rouge)//3
+        img2.putpixel((x,y),(niveau_gris))
+
+img2.show()
+img2.save("pommeMystereVraiNiveauDeGris.jpg")
+
+#+end_src
