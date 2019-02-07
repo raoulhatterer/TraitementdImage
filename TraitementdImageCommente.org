@@ -57,18 +57,18 @@ img.show()
 * Que fait le programme suivant ?
 
 #+begin_src python  :tangle  mystere.py
-from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-        rouge,vert,bleu=img.getpixel((x,y))
-        nouveau_rouge=vert
-        nouveau_vert=bleu
-        nouveau_bleu=rouge
-        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
-img.show()
-img.save("pommeMystere.jpg")
+from PIL import Image # Importation de la librairie PILLOW (gestion image)
+img = Image.open("pomme.jpg") # Mise en mémoire dans la variable "img" le fichier pomme.jpg qui doit être dans le même répertoire que le programme
+largeur_image,hauteur_image=img.size # Méthode size aplliquée à la variable img qui renvoie la largeur et la hauteur de l'image
+for y in range(hauteur_image): # Pour chaque ligne de 0 à hauteur de l'image
+    for x in range(largeur_image): #Pour chaque colonne de 0 à la largeur de chaque ligne
+        rouge,vert,bleu=img.getpixel((x,y)) #Méthode getpixels appliquée à la variable img à la position x,y qui renvoie les valeurs r,g,b du pixel.
+        nouveau_rouge=vert #le vert devient rouge
+        nouveau_vert=bleu #le bleu devient vert
+        nouveau_bleu=rouge #le rouge devient bleu
+        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) #Méthode putpixels appliquée à la variable img à la position x,y qui remplace les valeurs r,g,b du pixel.
+img.show() #affichage de l'image
+img.save("pommeMystere.jpg") #sauvegarde de l'image obtenue
 #+end_src
 
 #+RESULTS:
