@@ -1,4 +1,4 @@
-% Created 2019-02-07 jeu. 17:02
+% Created 2019-02-08 ven. 20:21
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -34,37 +34,30 @@
 \maketitle
 \tableofcontents
 
-Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
-\section{Installation de PIL}
-\label{sec:org2c21f8c}
-
-À faire au préalable par le professeur.
-
-\begin{minted}[]{shell}
- pip3 install pillow
-\end{minted}
 
 
 \section{Codage RVB et niveau de gris}
-\label{sec:orga2489d6}
+\label{sec:org2ae85f0}
 
-Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
-Essayer pour plusieurs couleurs.
+\begin{itemize}
+\item Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+\item Essayer pour plusieurs couleurs.
+\end{itemize}
 
 
 \section{Image de départ}
-\label{sec:orgbc2eab3}
+\label{sec:orgbdfc1e9}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{pomme.jpg}
-\caption{Image de départ (480px \texttimes{} 300px)}
+\caption{Image de départ}
 \end{figure}
 
 
 \section{Comment lire un pixel}
-\label{sec:orgcd4cde0}
+\label{sec:orgbe8241a}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -81,7 +74,7 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:orgf753664}
+\label{sec:orge91fe4b}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -90,9 +83,11 @@ img.putpixel((5,5),(255,0,0))
 img.show()
 \end{minted}
 
+Question : \emph{Identifier où se trouve l'origine de l'image.}
+
 
 \section{Que fait le programme suivant ?}
-\label{sec:org6020abd}
+\label{sec:org1b6e758}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -119,10 +114,10 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 \end{figure}
 
 
-\section{Passage d'une image en niveau de gris}
-\label{sec:org740a7b0}
+\section{Passage d'une image en niveaux de gris (codé RVB sur 3 octets)}
+\label{sec:org9ad7c29}
 
-Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
 Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
 
@@ -148,35 +143,51 @@ img.save("pommegrise.jpg")
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{pommegrise.jpg}
-\caption{Image en niveaux de gris}
+\caption{Pomme Linux en niveaux de gris (codé RVB)}
 \end{figure}
 
 
-\section{Passage d'une image en vrai niveau de gris (sans informations triplées)}
-\label{sec:org9c6bfe3}
+\section{Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)}
+\label{sec:org298a645}
 
-
-\begin{minted}[]{python}
+\begin{minted}[linenos,firstnumber=1]{python}
 from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-img2 = Image.new("L",(largeur_image,hauteur_image))
-
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-        rouge,vert,bleu=img.getpixel((x,y))
-        niveau_gris=(vert+bleu+rouge)//3
-        img2.putpixel((x,y),(niveau_gris))
-
-img2.show()
-img2.save("pommegriseL.jpg")
+img = Image.open("pomme.jpg").convert("L")
+img.show()
+img.save("pommegriseL.jpg")
 \end{minted}
 
-Comparer la taille des différents fichiers. Conclure.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{pommegriseL.jpg}
-\caption{Image en niveaux de gris (sans redondance)}
+\caption{Image en niveaux de gris (luminance L)}
+\end{figure}
+
+Comparer la taille des différents fichiers. Conclure.
+
+
+\section{Récréation ou challenge ?}
+\label{sec:org7896b85}
+
+\subsection{Créer une image en négatif}
+\label{sec:org9018a77}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommeNegatif.jpg}
+\caption{Négatif}
+\end{figure}
+
+\subsection{Diagonale}
+\label{sec:org1031e6d}
+
+Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=.9\linewidth]{pommemisgrise.jpg}
+\caption{Pomme coupée}
 \end{figure}
 \end{document}

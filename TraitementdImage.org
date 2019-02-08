@@ -48,7 +48,7 @@ img.show()
 #+RESULTS:
 : None
 
-/Identifier où se trouve l'origine de l'image./
+Question : /Identifier où se trouve l'origine de l'image./
 
 
 * Que fait le programme suivant ?
@@ -78,7 +78,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 [[file:pommeMystere.jpg]]
 
 
-* Passage d'une image en niveau de gris
+* Passage d'une image en niveaux de gris (codé RVB sur 3 octets)
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -106,35 +106,41 @@ img.save("pommegrise.jpg")
 #+RESULTS:
 : None
 
-#+CAPTION: Image en niveaux de gris
+#+CAPTION: Pomme Linux en niveaux de gris (codé RVB)
 [[file:pommegrise.jpg]]
 
 
-* Passage d'une image en vrai niveau de gris (sans informations triplées) 
+* Passage d'une image en niveau de gris (luminance codée sur 1 seul octet) 
 
-
-#+begin_src python  :tangle pommegriseL.py
+#+begin_src python -n  :tangle pommegriseL.py 
 from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-img2 = Image.new("L",(largeur_image,hauteur_image))
-
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-        rouge,vert,bleu=img.getpixel((x,y))
-        niveau_gris=(vert+bleu+rouge)//3
-        img2.putpixel((x,y),(niveau_gris))
-
-img2.show()
-img2.save("pommegriseL.jpg")
+img = Image.open("pomme.jpg").convert("L")
+img.show()
+img.save("pommegriseL.jpg")
 #+end_src
 
 #+RESULTS:
 : None
 
-Comparer la taille des différents fichiers. Conclure.
 
-#+CAPTION: Image en niveaux de gris (sans redondance)
+#+CAPTION: Image en niveaux de gris (luminance L)
 [[file:pommegriseL.jpg]]
 
+Comparer la taille des différents fichiers. Conclure.
+
+
+* Récréation ou challenge ?
+
+** Créer une image en négatif 
+
+#+CAPTION: Négatif
+[[file:pommeNegatif.jpg]]
+
+** Diagonale
+
+Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
+
+
+#+CAPTION: Pomme coupée
+[[file:pommemisgrise.jpg]]
 

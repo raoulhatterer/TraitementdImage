@@ -122,7 +122,7 @@ On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui ser
 Les couleurs ont été permutées.
 
 
-* Passage d'une image en niveau de gris (codé RVB sur 3 octets)
+* Passage d'une image en niveaux de gris (codé RVB sur 3 octets)
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -185,7 +185,6 @@ img.save("colingris.jpg")
 
 
 ** Utilisation du mode =L= (luminance) pour les images en nuances de gris 
-
 *** Pomme Linux
 
 #+begin_src python -n  :tangle pommegriseL.py 
@@ -199,7 +198,7 @@ img.save("pommegriseL.jpg")
 : None
 
 
-#+CAPTION: Image en niveaux de gris (sans redondance)
+#+CAPTION: Image en niveaux de gris (codé L)
 #+ATTR_LATEX: :width 7cm
 [[file:pommegriseL.jpg]]
 
@@ -217,7 +216,7 @@ img.save("colingrisL.jpg")
 : None
 
 
-#+CAPTION: Colin de Californie en niveaux de gris (luminance)
+#+CAPTION: Colin de Californie en niveaux de gris (luminance L)
 #+ATTR_LATEX: :width 7cm
 [[file:colingrisL.jpg]]
 
