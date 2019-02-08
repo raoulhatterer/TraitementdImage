@@ -4,21 +4,13 @@
 #+LaTeX_HEADER: \usepackage[x11names]{xcolor}
 #+LaTeX_HEADER: \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
 #+LATEX_HEADER: \usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
-#+TITLE: Traitement d'image avec commentaires
+#+TITLE: Traitement d'image
 #+SUBTITLE: (compléments d'informations à destination du professeur)
 #+AUTHOR: Raoul HATTERER
 
 
 
 Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
-
-* Installation de PIL
-
-À faire au préalable par le professeur.
-
-#+begin_src shell
- pip3 install pillow
-#+end_src
 
 
 
@@ -30,27 +22,46 @@ Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_ph
 
 * Image de départ
 
-#+CAPTION: Image de départ
+** Pomme Linux
+
+#+CAPTION: Image de départ (Pomme Linux)
 #+ATTR_LATEX: :width 6cm
 [[file:pomme.jpg]]
 
+** Colin de Californie 
+
+#+CAPTION: Image de départ (Colin de Californie)
+#+ATTR_LATEX: :width 6cm
+[[file:California_Quail.jpg]]
 
 * Comment lire un pixel
 
-Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
+** Installation de PIL
 
-#+begin_src python :results output :exports both :tangle lecturePixel.py
+ À faire au préalable par le professeur.
+
+ #+begin_src shell
+ pip3 install pillow
+ #+end_src
+
+** Activité
+
+ Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
+
+ #+begin_src python :results output :exports both :tangle lecturePixel.py
 from PIL import Image
 img = Image.open("pomme.jpg")
 r,v,b=img.getpixel((100,250))
 print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
-#+end_src
+ #+end_src
 
-#+RESULTS:
-: canal rouge :  19 canal vert :  88 canal bleu :  192
+ #+RESULTS:
+ : canal rouge :  19 canal vert :  88 canal bleu :  192
 
 
 * Comment écrire un pixel
+
+*** Code
 
 #+begin_src python  :tangle ecriturePixel.py
 from PIL import Image
@@ -61,6 +72,13 @@ img.show()
 
 #+RESULTS:
 : None
+
+** Question
+   Identifier où se trouve l'origine de l'image.
+
+** Réponse 
+   - Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité.
+   - L'origine est en haut à gauche.
 
 
 * Que fait le programme suivant ?
@@ -94,12 +112,13 @@ print(img.size)                              # Affichage du tupple avec la taill
 #+RESULTS:
 : (480, 300)
 
-
-On analyse le code ci-dessus qui servira de base pour le défi suivant.
+On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui servira de base pour le défi suivant.
 
 #+CAPTION: Résultat du programme mystère
 #+ATTR_LATEX: :width 6cm
 [[file:pommeMystere.jpg]]
+
+Les couleurs ont été permutées.
 
 
 * Passage d'une image en niveau de gris
@@ -131,15 +150,42 @@ img.save("pommegrise.jpg")
 #+RESULTS:
 : None
 
-#+CAPTION: Image en niveaux de gris
+#+CAPTION: Pomme Linux en niveaux de gris (codé RVB)
 #+ATTR_LATEX: :width 6cm
 [[file:pommegrise.jpg]]
 
+
+
+#+begin_src python  
+from PIL import Image
+img = Image.open("California_Quail.jpg")
+largeur_image,hauteur_image=img.size
+
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+       rouge,vert,bleu=img.getpixel((x,y))
+       nouveau_rouge=(vert+bleu+rouge)//3
+       nouveau_vert=(vert+bleu+rouge)//3
+       nouveau_bleu=(vert+bleu+rouge)//3
+       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+
+img.show()
+img.save("colingris.jpg")
+#+end_src
+
+#+RESULTS:
+: None
+
+#+CAPTION: Colin de Californie en niveaux de gris RVB
+#+ATTR_LATEX: :width 6cm
+[[file:colingris.jpg]]
 
 * Passage d'une image en vrai niveau de gris (sans informations triplées) 
 
 
 ** Utilisation du mode =L= (luminance) pour les images en nuances de gris 
+
+*** Pomme Linux
 
 #+begin_src python  :tangle pommegriseL.py
 from PIL import Image
@@ -151,11 +197,32 @@ img.save("pommegriseL.jpg")
 #+RESULTS:
 : None
 
-Comparer la taille des différents fichiers. Conclure.
 
 #+CAPTION: Image en niveaux de gris (sans redondance)
 #+ATTR_LATEX: :width 6cm
 [[file:pommegriseL.jpg]]
+
+
+*** Colin de Californie
+
+#+begin_src python
+from PIL import Image
+img = Image.open("California_Quail.jpg").convert("L")
+img.show()
+img.save("colingrisL.jpg")
+#+end_src
+
+#+RESULTS:
+: None
+
+
+#+CAPTION: Colin de Californie en niveaux de gris (luminance)
+#+ATTR_LATEX: :width 6cm
+[[file:colingrisL.jpg]]
+
+Comparer la taille des différents fichiers. Conclure.
+
+
 
 /Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd./
 

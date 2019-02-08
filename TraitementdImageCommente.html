@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<!-- 2019-02-08 ven. 00:20 -->
+<!-- 2019-02-08 ven. 13:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Traitement d'image avec commentaires</title>
+<title>Traitement d'image</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Raoul HATTERER" />
 <style type="text/css">
@@ -242,7 +242,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Traitement d'image avec commentaires
+<h1 class="title">Traitement d'image
 <br />
 <span class="subtitle">(compléments d'informations à destination du professeur)</span>
 </h1>
@@ -250,23 +250,47 @@ for the JavaScript code in this tag.
 <h2>Table des matières</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2972d5e">1. Installation de PIL</a></li>
-<li><a href="#org717d4b6">2. Codage RVB et niveau de gris</a></li>
-<li><a href="#org60bb93c">3. Image de départ</a></li>
-<li><a href="#orgc0779ee">4. Comment lire un pixel</a></li>
-<li><a href="#org8805681">5. Comment écrire un pixel</a></li>
-<li><a href="#orga5e1942">6. Que fait le programme suivant ?</a></li>
-<li><a href="#orgd112648">7. Passage d'une image en niveau de gris</a></li>
-<li><a href="#orgf5c47c0">8. Passage d'une image en vrai niveau de gris (sans informations triplées)</a>
+<li><a href="#org4ad79c5">1. Codage RVB et niveau de gris</a></li>
+<li><a href="#org0d6345e">2. Image de départ</a>
 <ul>
-<li><a href="#org40c1f67">8.1. Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</a></li>
-<li><a href="#org54a6000">8.2. Existe-t-il d'autres modes ?</a></li>
+<li><a href="#org9a671ed">2.1. Pomme Linux</a></li>
+<li><a href="#orgb508350">2.2. Colin de Californie</a></li>
 </ul>
 </li>
-<li><a href="#orgabda4a8">9. Pour aller plus loin</a>
+<li><a href="#org587b26c">3. Comment lire un pixel</a>
 <ul>
-<li><a href="#org21def04">9.1. Créer une image en négatif</a></li>
-<li><a href="#org036da7a">9.2. Diagonale</a></li>
+<li><a href="#org32201e2">3.1. Installation de PIL</a></li>
+<li><a href="#org318932c">3.2. Activité</a></li>
+</ul>
+</li>
+<li><a href="#orgd7a5eb2">4. Comment écrire un pixel</a>
+<ul>
+<li>
+<ul>
+<li><a href="#org711b74c">4.0.1. Code</a></li>
+</ul>
+</li>
+<li><a href="#org02a0406">4.1. Question</a></li>
+<li><a href="#org050ca08">4.2. Réponse</a></li>
+</ul>
+</li>
+<li><a href="#org2ffe9ca">5. Que fait le programme suivant ?</a></li>
+<li><a href="#orgfc1cd38">6. Passage d'une image en niveau de gris</a></li>
+<li><a href="#org9745220">7. Passage d'une image en vrai niveau de gris (sans informations triplées)</a>
+<ul>
+<li><a href="#orgc5ef2af">7.1. Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</a>
+<ul>
+<li><a href="#orga3db303">7.1.1. Pomme Linux</a></li>
+<li><a href="#orgd30ff31">7.1.2. Colin de Californie</a></li>
+</ul>
+</li>
+<li><a href="#org1c7102b">7.2. Existe-t-il d'autres modes ?</a></li>
+</ul>
+</li>
+<li><a href="#orgf39985f">8. Pour aller plus loin</a>
+<ul>
+<li><a href="#org656f001">8.1. Créer une image en négatif</a></li>
+<li><a href="#org99cc776">8.2. Diagonale</a></li>
 </ul>
 </li>
 </ul>
@@ -276,9 +300,55 @@ for the JavaScript code in this tag.
 Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a>
 </p>
 
-<div id="outline-container-org2972d5e" class="outline-2">
-<h2 id="org2972d5e"><span class="section-number-2">1</span> Installation de PIL</h2>
+
+
+<div id="outline-container-org4ad79c5" class="outline-2">
+<h2 id="org4ad79c5"><span class="section-number-2">1</span> Codage RVB et niveau de gris</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.</li>
+<li>Essayer pour plusieurs couleurs.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org0d6345e" class="outline-2">
+<h2 id="org0d6345e"><span class="section-number-2">2</span> Image de départ</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org9a671ed" class="outline-3">
+<h3 id="org9a671ed"><span class="section-number-3">2.1</span> Pomme Linux</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<div class="figure">
+<p><img src="pomme.jpg" alt="pomme.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span>Image de départ (Pomme Linux)</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb508350" class="outline-3">
+<h3 id="orgb508350"><span class="section-number-3">2.2</span> Colin de Californie</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<div class="figure">
+<p><img src="California_Quail.jpg" alt="California_Quail.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;2&nbsp;: </span>Image de départ (Colin de Californie)</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org587b26c" class="outline-2">
+<h2 id="org587b26c"><span class="section-number-2">3</span> Comment lire un pixel</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org32201e2" class="outline-3">
+<h3 id="org32201e2"><span class="section-number-3">3.1</span> Installation de PIL</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 À faire au préalable par le professeur.
 </p>
@@ -290,35 +360,9 @@ Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site
 </div>
 </div>
 
-
-
-<div id="outline-container-org717d4b6" class="outline-2">
-<h2 id="org717d4b6"><span class="section-number-2">2</span> Codage RVB et niveau de gris</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li>Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.</li>
-<li>Essayer pour plusieurs couleurs.</li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org60bb93c" class="outline-2">
-<h2 id="org60bb93c"><span class="section-number-2">3</span> Image de départ</h2>
-<div class="outline-text-2" id="text-3">
-
-<div class="figure">
-<p><img src="pomme.jpg" alt="pomme.jpg" />
-</p>
-<p><span class="figure-number">Figure&nbsp;1&nbsp;: </span>Image de départ</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgc0779ee" class="outline-2">
-<h2 id="orgc0779ee"><span class="section-number-2">4</span> Comment lire un pixel</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org318932c" class="outline-3">
+<h3 id="org318932c"><span class="section-number-3">3.2</span> Activité</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 </p>
@@ -336,11 +380,16 @@ Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment l
 </pre>
 </div>
 </div>
+</div>
 
 
-<div id="outline-container-org8805681" class="outline-2">
-<h2 id="org8805681"><span class="section-number-2">5</span> Comment écrire un pixel</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgd7a5eb2" class="outline-2">
+<h2 id="orgd7a5eb2"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-org711b74c" class="outline-4">
+<h4 id="org711b74c"><span class="section-number-4">4.0.1</span> Code</h4>
+<div class="outline-text-4" id="text-4-0-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
 <span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
@@ -351,10 +400,30 @@ img.show()
 </div>
 </div>
 
+<div id="outline-container-org02a0406" class="outline-3">
+<h3 id="org02a0406"><span class="section-number-3">4.1</span> Question</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Identifier où se trouve l'origine de l'image.
+</p>
+</div>
+</div>
 
-<div id="outline-container-orga5e1942" class="outline-2">
-<h2 id="orga5e1942"><span class="section-number-2">6</span> Que fait le programme suivant ?</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org050ca08" class="outline-3">
+<h3 id="org050ca08"><span class="section-number-3">4.2</span> Réponse</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité.</li>
+<li>L'origine est en haut à gauche.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2ffe9ca" class="outline-2">
+<h2 id="org2ffe9ca"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
+<div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image                        <span style="color: #b22222;"># </span><span style="color: #b22222;">Importation de la librairie PILLOW (gestion image)</span>
 <span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)                <span style="color: #b22222;"># </span><span style="color: #b22222;">Mise en m&#233;moire dans la variable "img" du fichier </span>
@@ -387,24 +456,27 @@ img.save(<span style="color: #8b2252;">"pommeMystere.jpg"</span>)               
 </pre>
 
 
-
 <p>
-On analyse le code ci-dessus qui servira de base pour le défi suivant.
+On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui servira de base pour le défi suivant.
 </p>
 
 
 <div class="figure">
 <p><img src="pommeMystere.jpg" alt="pommeMystere.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;2&nbsp;: </span>Résultat du programme mystère</p>
+<p><span class="figure-number">Figure&nbsp;3&nbsp;: </span>Résultat du programme mystère</p>
 </div>
+
+<p>
+Les couleurs ont été permutées.
+</p>
 </div>
 </div>
 
 
-<div id="outline-container-orgd112648" class="outline-2">
-<h2 id="orgd112648"><span class="section-number-2">7</span> Passage d'une image en niveau de gris</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgfc1cd38" class="outline-2">
+<h2 id="orgfc1cd38"><span class="section-number-2">6</span> Passage d'une image en niveau de gris</h2>
+<div class="outline-text-2" id="text-6">
 <p>
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 </p>
@@ -440,19 +512,49 @@ img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
 <div class="figure">
 <p><img src="pommegrise.jpg" alt="pommegrise.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;3&nbsp;: </span>Image en niveaux de gris</p>
+<p><span class="figure-number">Figure&nbsp;4&nbsp;: </span>Pomme Linux en niveaux de gris</p>
+</div>
+
+
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"California_Quail.jpg"</span>)
+<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
+
+<span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
+<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+
+img.show()
+img.save(<span style="color: #8b2252;">"colingris.jpg"</span>)
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="colingris.jpg" alt="colingris.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;5&nbsp;: </span>Colin de Californie en niveaux de gris RVB</p>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-orgf5c47c0" class="outline-2">
-<h2 id="orgf5c47c0"><span class="section-number-2">8</span> Passage d'une image en vrai niveau de gris (sans informations triplées)</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org9745220" class="outline-2">
+<h2 id="org9745220"><span class="section-number-2">7</span> Passage d'une image en vrai niveau de gris (sans informations triplées)</h2>
+<div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org40c1f67" class="outline-3">
-<h3 id="org40c1f67"><span class="section-number-3">8.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</h3>
-<div class="outline-text-3" id="text-8-1">
+<div id="outline-container-orgc5ef2af" class="outline-3">
+<h3 id="orgc5ef2af"><span class="section-number-3">7.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</h3>
+<div class="outline-text-3" id="text-7-1">
+</div>
+<div id="outline-container-orga3db303" class="outline-4">
+<h4 id="orga3db303"><span class="section-number-4">7.1.1</span> Pomme Linux</h4>
+<div class="outline-text-4" id="text-7-1-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
 <span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>).convert(<span style="color: #8b2252;">"L"</span>)
@@ -461,26 +563,52 @@ img.save(<span style="color: #8b2252;">"pommegriseL.jpg"</span>)
 </pre>
 </div>
 
-<p>
-Comparer la taille des différents fichiers. Conclure.
-</p>
 
 
 <div class="figure">
 <p><img src="pommegriseL.jpg" alt="pommegriseL.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;4&nbsp;: </span>Image en niveaux de gris (sans redondance)</p>
+<p><span class="figure-number">Figure&nbsp;6&nbsp;: </span>Image en niveaux de gris (sans redondance)</p>
 </div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd30ff31" class="outline-4">
+<h4 id="orgd30ff31"><span class="section-number-4">7.1.2</span> Colin de Californie</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
+<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"California_Quail.jpg"</span>).convert(<span style="color: #8b2252;">"L"</span>)
+img.show()
+img.save(<span style="color: #8b2252;">"colingrisL.jpg"</span>)
+</pre>
+</div>
+
+
+
+<div class="figure">
+<p><img src="colingrisL.jpg" alt="colingrisL.jpg" />
+</p>
+<p><span class="figure-number">Figure&nbsp;7&nbsp;: </span>Colin de Californie en niveaux de gris (luminance)</p>
+</div>
+
+<p>
+Comparer la taille des différents fichiers. Conclure.
+</p>
+
+
 
 <p>
 <i>Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd.</i>
 </p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org54a6000" class="outline-3">
-<h3 id="org54a6000"><span class="section-number-3">8.2</span> Existe-t-il d'autres modes ?</h3>
-<div class="outline-text-3" id="text-8-2">
+<div id="outline-container-org1c7102b" class="outline-3">
+<h3 id="org1c7102b"><span class="section-number-3">7.2</span> Existe-t-il d'autres modes ?</h3>
+<div class="outline-text-3" id="text-7-2">
 <p>
 Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#modes">modes</a> supportés par <code>Pillow</code> sont : 
 </p>
@@ -504,13 +632,13 @@ Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#mode
 
 
 
-<div id="outline-container-orgabda4a8" class="outline-2">
-<h2 id="orgabda4a8"><span class="section-number-2">9</span> Pour aller plus loin</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgf39985f" class="outline-2">
+<h2 id="orgf39985f"><span class="section-number-2">8</span> Pour aller plus loin</h2>
+<div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org21def04" class="outline-3">
-<h3 id="org21def04"><span class="section-number-3">9.1</span> Créer une image en négatif</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-org656f001" class="outline-3">
+<h3 id="org656f001"><span class="section-number-3">8.1</span> Créer une image en négatif</h3>
+<div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
 <span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
@@ -533,14 +661,14 @@ img.save(<span style="color: #8b2252;">"pommeNegatif.jpg"</span>)
 <div class="figure">
 <p><img src="pommeNegatif.jpg" alt="pommeNegatif.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;5&nbsp;: </span>Négatif</p>
+<p><span class="figure-number">Figure&nbsp;8&nbsp;: </span>Négatif</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org036da7a" class="outline-3">
-<h3 id="org036da7a"><span class="section-number-3">9.2</span> Diagonale</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-org99cc776" class="outline-3">
+<h3 id="org99cc776"><span class="section-number-3">8.2</span> Diagonale</h3>
+<div class="outline-text-3" id="text-8-2">
 <p>
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 </p>
@@ -568,7 +696,7 @@ img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
 <div class="figure">
 <p><img src="pommemisgrise.jpg" alt="pommemisgrise.jpg" />
 </p>
-<p><span class="figure-number">Figure&nbsp;6&nbsp;: </span>Pomme coupée</p>
+<p><span class="figure-number">Figure&nbsp;9&nbsp;: </span>Pomme coupée</p>
 </div>
 </div>
 </div>
@@ -576,7 +704,7 @@ img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
 </div>
 <div id="postamble" class="status">
 <p class="author">Auteur: Raoul HATTERER</p>
-<p class="date">Created: 2019-02-08 ven. 00:20</p>
+<p class="date">Created: 2019-02-08 ven. 13:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

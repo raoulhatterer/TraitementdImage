@@ -1,4 +1,4 @@
-% Created 2019-02-08 ven. 00:20
+% Created 2019-02-08 ven. 13:15
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -21,11 +21,11 @@
 \usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
 \author{Raoul HATTERER}
 \date{\today}
-\title{Traitement d'image avec commentaires\\\medskip
+\title{Traitement d'image\\\medskip
 \large (compléments d'informations à destination du professeur)}
 \hypersetup{
  pdfauthor={Raoul HATTERER},
- pdftitle={Traitement d'image avec commentaires},
+ pdftitle={Traitement d'image},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 26.1 (Org mode 9.2)}, 
@@ -37,19 +37,10 @@
 
 Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
 
-\section{Installation de PIL}
-\label{sec:org20ce50c}
-
-À faire au préalable par le professeur.
-
-\begin{minted}[]{shell}
- pip3 install pillow
-\end{minted}
-
 
 
 \section{Codage RVB et niveau de gris}
-\label{sec:orgbb3b24c}
+\label{sec:org89e55a4}
 
 \begin{itemize}
 \item Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
@@ -58,17 +49,40 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Image de départ}
-\label{sec:org1fc1ed4}
+\label{sec:orgb0244b0}
+
+\subsection{Pomme Linux}
+\label{sec:orgf0a3dd5}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=6cm]{pomme.jpg}
-\caption{Image de départ}
+\caption{Image de départ (Pomme Linux)}
 \end{figure}
 
+\subsection{Colin de Californie}
+\label{sec:orgf5bfff3}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6cm]{California_Quail.jpg}
+\caption{Image de départ (Colin de Californie)}
+\end{figure}
 
 \section{Comment lire un pixel}
-\label{sec:org7160ffa}
+\label{sec:orgd53720e}
+
+\subsection{Installation de PIL}
+\label{sec:org6ea6e92}
+
+À faire au préalable par le professeur.
+
+\begin{minted}[]{shell}
+ pip3 install pillow
+\end{minted}
+
+\subsection{Activité}
+\label{sec:orgfe590cc}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -85,7 +99,10 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:org148285e}
+\label{sec:org178cf10}
+
+\subsubsection{Code}
+\label{sec:orgecebb60}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -94,9 +111,20 @@ img.putpixel((5,5),(255,0,0))
 img.show()
 \end{minted}
 
+\subsection{Question}
+\label{sec:orge9fb6a6}
+Identifier où se trouve l'origine de l'image.
+
+\subsection{Réponse}
+\label{sec:org13e1ead}
+\begin{itemize}
+\item Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité.
+\item L'origine est en haut à gauche.
+\end{itemize}
+
 
 \section{Que fait le programme suivant ?}
-\label{sec:orge5499cb}
+\label{sec:org6ad9ae7}
 
 \begin{minted}[]{python}
 from PIL import Image                        # Importation de la librairie PILLOW (gestion image)
@@ -129,8 +157,7 @@ print(img.size)                              # Affichage du tupple avec la taill
 \end{verbatim}
 
 
-
-On analyse le code ci-dessus qui servira de base pour le défi suivant.
+On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui servira de base pour le défi suivant.
 
 \begin{figure}[htbp]
 \centering
@@ -138,9 +165,11 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 \caption{Résultat du programme mystère}
 \end{figure}
 
+Les couleurs ont été permutées.
+
 
 \section{Passage d'une image en niveau de gris}
-\label{sec:org155b6b7}
+\label{sec:org9412e29}
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -169,16 +198,43 @@ img.save("pommegrise.jpg")
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=6cm]{pommegrise.jpg}
-\caption{Image en niveaux de gris}
+\caption{Pomme Linux en niveaux de gris}
 \end{figure}
 
 
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("California_Quail.jpg")
+largeur_image,hauteur_image=img.size
+
+for y in range(hauteur_image):
+    for x in range(largeur_image):
+       rouge,vert,bleu=img.getpixel((x,y))
+       nouveau_rouge=(vert+bleu+rouge)//3
+       nouveau_vert=(vert+bleu+rouge)//3
+       nouveau_bleu=(vert+bleu+rouge)//3
+       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+
+img.show()
+img.save("colingris.jpg")
+\end{minted}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6cm]{colingris.jpg}
+\caption{Colin de Californie en niveaux de gris RVB}
+\end{figure}
+
 \section{Passage d'une image en vrai niveau de gris (sans informations triplées)}
-\label{sec:orgd9418d3}
+\label{sec:org77c9392}
 
 
 \subsection{Utilisation du mode \texttt{L} (luminance) pour les images en nuances de gris}
-\label{sec:org451a270}
+\label{sec:org9d9502c}
+
+\subsubsection{Pomme Linux}
+\label{sec:orge57fb85}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -187,7 +243,6 @@ img.show()
 img.save("pommegriseL.jpg")
 \end{minted}
 
-Comparer la taille des différents fichiers. Conclure.
 
 \begin{figure}[htbp]
 \centering
@@ -195,10 +250,32 @@ Comparer la taille des différents fichiers. Conclure.
 \caption{Image en niveaux de gris (sans redondance)}
 \end{figure}
 
+
+\subsubsection{Colin de Californie}
+\label{sec:orga3e304d}
+
+\begin{minted}[]{python}
+from PIL import Image
+img = Image.open("California_Quail.jpg").convert("L")
+img.show()
+img.save("colingrisL.jpg")
+\end{minted}
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6cm]{colingrisL.jpg}
+\caption{Colin de Californie en niveaux de gris (luminance)}
+\end{figure}
+
+Comparer la taille des différents fichiers. Conclure.
+
+
+
 \emph{Réponse : code sur un octet par pixel l'image prend moins de place donc le fichier est moins lourd.}
 
 \subsection{Existe-t-il d'autres modes ?}
-\label{sec:orgabf32b9}
+\label{sec:orgf8ece18}
 
 Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}{modes} supportés par \texttt{Pillow} sont : 
 
@@ -219,10 +296,10 @@ Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}
 
 
 \section{Pour aller plus loin}
-\label{sec:org5da2b97}
+\label{sec:org3cdbf5c}
 
 \subsection{Créer une image en négatif}
-\label{sec:orgaf1648e}
+\label{sec:orgbce4c8e}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -248,7 +325,7 @@ img.save("pommeNegatif.jpg")
 \end{figure}
 
 \subsection{Diagonale}
-\label{sec:orgaa6dc4d}
+\label{sec:orgb3c5471}
 
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 

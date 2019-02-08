@@ -9,21 +9,10 @@
 
 
 
-Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
-
-* Installation de PIL
-
-À faire au préalable par le professeur.
-
-#+begin_src shell
- pip3 install pillow
-#+end_src
-
-
 * Codage RVB et niveau de gris
 
-Aller sur [[https://www.w3schools.com/colors/colors_rgb.asp][colors RGB]] et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
-Essayer pour plusieurs couleurs.
+- Aller sur [[https://www.w3schools.com/colors/colors_rgb.asp][colors RGB]] et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
+- Essayer pour plusieurs couleurs.
 
 
 * Image de départ
@@ -59,6 +48,8 @@ img.show()
 #+RESULTS:
 : None
 
+/Identifier où se trouve l'origine de l'image./
+
 
 * Que fait le programme suivant ?
 
@@ -89,7 +80,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 * Passage d'une image en niveau de gris
 
-Après avoir fait quelques recherches sur les "images en niveau de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveau de gris".
+Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
 Petite astuce qui pourrait vous aider : en Python pour avoir une division entière (le résultat est un entier), il faut utiliser l'opérateur // à la place de l'opérateur / 
 
