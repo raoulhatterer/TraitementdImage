@@ -5,7 +5,7 @@ De la couleur au noir et blanc
 * [Voir le html élève](http://htmlpreview.github.io/?https://github.com/raoulhatterer/TraitementdImage/blob/master/TraitementdImage.html)
 
 
-* [Voir le pdf professeur](https://github.com/raoulhatterer/TraitementdImage/blob/master/TraitementdImageCommente.pdf)
-* [Voir le html professeur](http://htmlpreview.github.io/?https://github.com/raoulhatterer/TraitementdImage/blob/master/TraitementdImageCommente.html)
+* [Voir le pdf professeur](https://github.com/raoulhatterer/TraitementdImage/blob/master/TraitementdImageProf.pdf)
+* [Voir le html professeur](http://htmlpreview.github.io/?https://github.com/raoulhatterer/TraitementdImage/blob/master/TraitementdImageProf.html)
 
 
