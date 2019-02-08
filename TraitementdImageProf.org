@@ -6,12 +6,8 @@
 #+LATEX_HEADER: \usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
 #+TITLE: Traitement d'image
 #+SUBTITLE: (compléments d'informations à destination du professeur)
-#+AUTHOR: Raoul HATTERER
 #+OPTIONS: toc:1  
-
-
-Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
-
+#+AUTHOR: Raoul HATTERER
 
 
 * Codage RVB et niveau de gris
@@ -301,3 +297,7 @@ img.save("pommemisgrise.jpg")
 #+ATTR_LATEX: :width 7cm
 [[file:pommemisgrise.jpg]]
 
+
+* Adapter cette ressource
+Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur [[https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie][emacs]] mais sinon n'importe quel éditeur convient). 
+Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]

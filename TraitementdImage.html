@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<!-- 2019-02-08 ven. 20:21 -->
+<!-- 2019-02-08 ven. 20:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Traitement d'image</title>
@@ -250,27 +250,22 @@ for the JavaScript code in this tag.
 <h2>Table des matières</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org784dd6a">1. Codage RVB et niveau de gris</a></li>
-<li><a href="#org8e683fa">2. Image de départ</a></li>
-<li><a href="#org6542b23">3. Comment lire un pixel</a></li>
-<li><a href="#orgcce19c2">4. Comment écrire un pixel</a></li>
-<li><a href="#org43a1e55">5. Que fait le programme suivant ?</a></li>
-<li><a href="#org83f423a">6. Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</a></li>
-<li><a href="#orgf4095ab">7. Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)</a></li>
-<li><a href="#org2e78808">8. Récréation ou challenge ?</a>
-<ul>
-<li><a href="#org7831f13">8.1. Créer une image en négatif</a></li>
-<li><a href="#org5fc9257">8.2. Diagonale</a></li>
-</ul>
-</li>
+<li><a href="#orgeefd24f">1. Codage RVB et niveau de gris</a></li>
+<li><a href="#org8bb8d0a">2. Image de départ</a></li>
+<li><a href="#orgf255886">3. Comment lire un pixel</a></li>
+<li><a href="#org93db3e3">4. Comment écrire un pixel</a></li>
+<li><a href="#org4067b0b">5. Que fait le programme suivant ?</a></li>
+<li><a href="#org64d9749">6. Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</a></li>
+<li><a href="#org85b34e3">7. Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)</a></li>
+<li><a href="#org0cfba22">8. Récréation ou challenge ?</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-org784dd6a" class="outline-2">
-<h2 id="org784dd6a"><span class="section-number-2">1</span> Codage RVB et niveau de gris</h2>
+<div id="outline-container-orgeefd24f" class="outline-2">
+<h2 id="orgeefd24f"><span class="section-number-2">1</span> Codage RVB et niveau de gris</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.</li>
@@ -280,8 +275,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org8e683fa" class="outline-2">
-<h2 id="org8e683fa"><span class="section-number-2">2</span> Image de départ</h2>
+<div id="outline-container-org8bb8d0a" class="outline-2">
+<h2 id="org8bb8d0a"><span class="section-number-2">2</span> Image de départ</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -293,8 +288,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org6542b23" class="outline-2">
-<h2 id="org6542b23"><span class="section-number-2">3</span> Comment lire un pixel</h2>
+<div id="outline-container-orgf255886" class="outline-2">
+<h2 id="orgf255886"><span class="section-number-2">3</span> Comment lire un pixel</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
@@ -315,8 +310,8 @@ Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment l
 </div>
 
 
-<div id="outline-container-orgcce19c2" class="outline-2">
-<h2 id="orgcce19c2"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
+<div id="outline-container-org93db3e3" class="outline-2">
+<h2 id="org93db3e3"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -333,8 +328,8 @@ Question : <i>Identifier où se trouve l'origine de l'image.</i>
 </div>
 
 
-<div id="outline-container-org43a1e55" class="outline-2">
-<h2 id="org43a1e55"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
+<div id="outline-container-org4067b0b" class="outline-2">
+<h2 id="org4067b0b"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -367,8 +362,8 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 </div>
 
 
-<div id="outline-container-org83f423a" class="outline-2">
-<h2 id="org83f423a"><span class="section-number-2">6</span> Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</h2>
+<div id="outline-container-org64d9749" class="outline-2">
+<h2 id="org64d9749"><span class="section-number-2">6</span> Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
@@ -410,8 +405,8 @@ img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
 </div>
 
 
-<div id="outline-container-orgf4095ab" class="outline-2">
-<h2 id="orgf4095ab"><span class="section-number-2">7</span> Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)</h2>
+<div id="outline-container-org85b34e3" class="outline-2">
+<h2 id="org85b34e3"><span class="section-number-2">7</span> Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)</h2>
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 <pre class="src src-python"><span class="linenr">1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
@@ -436,12 +431,12 @@ Comparer la taille des différents fichiers. Conclure.
 </div>
 
 
-<div id="outline-container-org2e78808" class="outline-2">
-<h2 id="org2e78808"><span class="section-number-2">8</span> Récréation ou challenge ?</h2>
+<div id="outline-container-org0cfba22" class="outline-2">
+<h2 id="org0cfba22"><span class="section-number-2">8</span> Récréation ou challenge ?</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org7831f13" class="outline-3">
-<h3 id="org7831f13"><span class="section-number-3">8.1</span> Créer une image en négatif</h3>
+<div id="outline-container-org33fad0b" class="outline-3">
+<h3 id="org33fad0b"><span class="section-number-3">8.1</span> Créer une image en négatif</h3>
 <div class="outline-text-3" id="text-8-1">
 
 <div class="figure">
@@ -452,8 +447,8 @@ Comparer la taille des différents fichiers. Conclure.
 </div>
 </div>
 
-<div id="outline-container-org5fc9257" class="outline-3">
-<h3 id="org5fc9257"><span class="section-number-3">8.2</span> Diagonale</h3>
+<div id="outline-container-org112a52e" class="outline-3">
+<h3 id="org112a52e"><span class="section-number-3">8.2</span> Diagonale</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
@@ -472,7 +467,7 @@ Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui
 </div>
 <div id="postamble" class="status">
 <p class="author">Auteur: Raoul HATTERER</p>
-<p class="date">Created: 2019-02-08 ven. 20:21</p>
+<p class="date">Created: 2019-02-08 ven. 20:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,4 +1,4 @@
-% Created 2019-02-08 ven. 20:21
+% Created 2019-02-08 ven. 20:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -32,13 +32,14 @@
 \begin{document}
 
 \maketitle
+\setcounter{tocdepth}{1}
 \tableofcontents
 
 
 
 
 \section{Codage RVB et niveau de gris}
-\label{sec:org2ae85f0}
+\label{sec:org1b0d0d9}
 
 \begin{itemize}
 \item Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
@@ -47,7 +48,7 @@
 
 
 \section{Image de départ}
-\label{sec:orgbdfc1e9}
+\label{sec:orgb215a96}
 
 \begin{figure}[htbp]
 \centering
@@ -57,7 +58,7 @@
 
 
 \section{Comment lire un pixel}
-\label{sec:orgbe8241a}
+\label{sec:orgdf47ac8}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -74,7 +75,7 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:orge91fe4b}
+\label{sec:org43712c9}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -87,7 +88,7 @@ Question : \emph{Identifier où se trouve l'origine de l'image.}
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:org1b6e758}
+\label{sec:org0fc92f7}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -115,7 +116,7 @@ On analyse le code ci-dessus qui servira de base pour le défi suivant.
 
 
 \section{Passage d'une image en niveaux de gris (codé RVB sur 3 octets)}
-\label{sec:org9ad7c29}
+\label{sec:org1fde869}
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -148,7 +149,7 @@ img.save("pommegrise.jpg")
 
 
 \section{Passage d'une image en niveau de gris (luminance codée sur 1 seul octet)}
-\label{sec:org298a645}
+\label{sec:org23192ac}
 
 \begin{minted}[linenos,firstnumber=1]{python}
 from PIL import Image
@@ -168,10 +169,10 @@ Comparer la taille des différents fichiers. Conclure.
 
 
 \section{Récréation ou challenge ?}
-\label{sec:org7896b85}
+\label{sec:orgc5abfdc}
 
 \subsection{Créer une image en négatif}
-\label{sec:org9018a77}
+\label{sec:org97f9b16}
 
 \begin{figure}[htbp]
 \centering
@@ -180,7 +181,7 @@ Comparer la taille des différents fichiers. Conclure.
 \end{figure}
 
 \subsection{Diagonale}
-\label{sec:org1031e6d}
+\label{sec:org28b4c9d}
 
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 

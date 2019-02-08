@@ -5,6 +5,7 @@
 #+LaTeX_HEADER: \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
 #+TITLE: Traitement d'image 
 #+SUBTITLE: (1 séance = 1h30)
+#+OPTIONS: toc:1  
 #+AUTHOR: Raoul HATTERER
 
 
