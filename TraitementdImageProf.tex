@@ -1,4 +1,4 @@
-% Created 2019-02-08 ven. 18:56
+% Created 2019-02-08 ven. 19:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -41,7 +41,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Codage RVB et niveau de gris}
-\label{sec:org7fb9708}
+\label{sec:orga350e7d}
 
 \begin{itemize}
 \item Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
@@ -50,7 +50,7 @@ Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/s
 
 
 \section{Images de départ}
-\label{sec:org14930d0}
+\label{sec:orgcf60078}
 
 Le professeur propose une ou plusieurs images couleurs de départ.
 
@@ -70,10 +70,10 @@ Le professeur propose une ou plusieurs images couleurs de départ.
 
 
 \section{Comment lire un pixel}
-\label{sec:orga8762f6}
+\label{sec:orge0cc8fc}
 
 \subsection{Installation de PIL}
-\label{sec:orga6acfda}
+\label{sec:orgc48b304}
 
 À faire au préalable par le professeur.
 
@@ -82,7 +82,7 @@ Le professeur propose une ou plusieurs images couleurs de départ.
 \end{minted}
 
 \subsection{Activité}
-\label{sec:orgef7a895}
+\label{sec:org8137e8d}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
@@ -99,10 +99,10 @@ print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
 
 
 \section{Comment écrire un pixel}
-\label{sec:orgf4cc538}
+\label{sec:org82d1461}
 
 \subsection{Code}
-\label{sec:org96b2369}
+\label{sec:org3cc9c25}
 
 \begin{minted}[]{python}
 from PIL import Image
@@ -112,16 +112,16 @@ img.show()
 \end{minted}
 
 \subsection{Question}
-\label{sec:orgbca515b}
+\label{sec:org34367bd}
 Identifier où se trouve l'origine de l'image.
 
 \subsection{Réponse}
-\label{sec:org7ee8276}
+\label{sec:org1fafb22}
 Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité et cherchent en examinant l'image, près de quel coin  il apparaît. On identifie ainsi que l'origine est en haut à gauche.
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:orga7ee321}
+\label{sec:org1ccd95b}
 
 \begin{minted}[]{python}
 # coding: utf-8                              # Spécifie l'encodage (ici unicode) du code source
@@ -167,7 +167,7 @@ Les couleurs ont été permutées.
 
 
 \section{Passage d'une image en niveau de gris (codé RVB sur 3 octets)}
-\label{sec:orgf2738e6}
+\label{sec:org58204ed}
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -225,14 +225,14 @@ img.save("colingris.jpg")
 \end{figure}
 
 \section{Passage d'une image en niveau de gris (codé L sur 1 seul octet)}
-\label{sec:org744758e}
+\label{sec:org4fa7872}
 
 
 \subsection{Utilisation du mode \texttt{L} (luminance) pour les images en nuances de gris}
-\label{sec:orga57f61d}
+\label{sec:org306e7aa}
 
 \subsubsection{Pomme Linux}
-\label{sec:orgc1ddfd9}
+\label{sec:org76578d9}
 
 \begin{minted}[linenos,firstnumber=1]{python}
 from PIL import Image
@@ -250,7 +250,7 @@ img.save("pommegriseL.jpg")
 
 
 \subsubsection{Colin de Californie}
-\label{sec:org971dd3f}
+\label{sec:org2ed6ac1}
 
 \begin{minted}[linenos,firstnumber=1]{python}
 from PIL import Image
@@ -273,7 +273,7 @@ Comparer la taille des différents fichiers. Conclure.
 \emph{Réponse : codée avec un octet par pixel, l'image (les datas) prend moins de place donc le fichier est moins lourd (la compression jpeg atténue le phénomène).}
 
 \subsection{Existe-t-il d'autres modes ?}
-\label{sec:org53d9dfa}
+\label{sec:org7491b16}
 
 Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}{modes} supportés par \texttt{Pillow} sont : 
 
@@ -293,11 +293,11 @@ Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}
 
 
 
-\section{Récréation}
-\label{sec:org6a5a4e1}
+\section{Récréation ou challenge ?}
+\label{sec:orgeffd373}
 
 \subsection{Créer une image en négatif}
-\label{sec:org0f4a58d}
+\label{sec:org01d3906}
 
 \begin{minted}[linenos,firstnumber=1]{python}
 from PIL import Image
@@ -323,7 +323,7 @@ img.save("pommeNegatif.jpg")
 \end{figure}
 
 \subsection{Diagonale}
-\label{sec:orgffbecd8}
+\label{sec:org50664b0}
 
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 

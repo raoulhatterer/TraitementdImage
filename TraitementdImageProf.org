@@ -245,7 +245,7 @@ Les [[https://pillow.readthedocs.io/en/latest/handbook/concepts.html#modes][mode
 
 
 
-* Récréation
+* Récréation ou challenge ?
 
 ** Créer une image en négatif 
 
