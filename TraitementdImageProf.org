@@ -177,10 +177,17 @@ img.save("colingris.jpg")
 #+ATTR_LATEX: :width 7cm
 [[file:colingris.jpg]]
 
+
 * Passage d'une image en niveau de gris (codé L sur 1 seul octet) 
 
 
 ** Utilisation du mode =L= (luminance) pour les images en nuances de gris 
+
+
+#+BEGIN_SRC python
+L = R * 299/1000 + G * 587/1000 + B * 114/1000
+#+END_SRC
+
 *** Pomme Linux
 
 #+begin_src python -n  :tangle pommegriseL.py 
@@ -299,5 +306,5 @@ img.save("pommemisgrise.jpg")
 
 
 * Adapter cette ressource
-Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur [[https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie][emacs]] mais sinon n'importe quel éditeur convient). 
-Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]]
+- Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur [[https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie][emacs]] mais sinon n'importe quel éditeur convient). 
+- Source : [[http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html][Traitement d'image de l'académie de grenoble]] (le site a été fermé).

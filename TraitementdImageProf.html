@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
 <head>
-<!-- 2019-02-08 ven. 20:58 -->
+<!-- 2019-02-11 Mon 17:18 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Traitement d'image</title>
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -198,7 +185,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -250,22 +237,22 @@ for the JavaScript code in this tag.
 <h2>Table des matières</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdf34635">1. Codage RVB et niveau de gris</a></li>
-<li><a href="#org32557b9">2. Images de départ</a></li>
-<li><a href="#org53e17d2">3. Comment lire un pixel</a></li>
-<li><a href="#org9c165a8">4. Comment écrire un pixel</a></li>
-<li><a href="#orge7a5213">5. Que fait le programme suivant ?</a></li>
-<li><a href="#org2924b96">6. Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</a></li>
-<li><a href="#org5127dcb">7. Passage d'une image en niveau de gris (codé L sur 1 seul octet)</a></li>
-<li><a href="#org3e00a35">8. Récréation ou challenge ?</a></li>
-<li><a href="#org15b22e0">9. Adapter cette ressource</a></li>
+<li><a href="#org18511d5">1. Codage RVB et niveau de gris</a></li>
+<li><a href="#orgd8c35b5">2. Images de départ</a></li>
+<li><a href="#org86113b6">3. Comment lire un pixel</a></li>
+<li><a href="#orgf3c5856">4. Comment écrire un pixel</a></li>
+<li><a href="#org1674093">5. Que fait le programme suivant ?</a></li>
+<li><a href="#orgdb7e1bb">6. Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</a></li>
+<li><a href="#org95ca5f3">7. Passage d'une image en niveau de gris (codé L sur 1 seul octet)</a></li>
+<li><a href="#org2c488fb">8. Récréation ou challenge ?</a></li>
+<li><a href="#org24a1b65">9. Adapter cette ressource</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgdf34635" class="outline-2">
-<h2 id="orgdf34635"><span class="section-number-2">1</span> Codage RVB et niveau de gris</h2>
+<div id="outline-container-org18511d5" class="outline-2">
+<h2 id="org18511d5"><span class="section-number-2">1</span> Codage RVB et niveau de gris</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Aller sur <a href="https://www.w3schools.com/colors/colors_rgb.asp">colors RGB</a> et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.</li>
@@ -275,8 +262,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org32557b9" class="outline-2">
-<h2 id="org32557b9"><span class="section-number-2">2</span> Images de départ</h2>
+<div id="outline-container-orgd8c35b5" class="outline-2">
+<h2 id="orgd8c35b5"><span class="section-number-2">2</span> Images de départ</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Le professeur propose une ou plusieurs images couleurs de départ.
@@ -301,66 +288,62 @@ Le professeur propose une ou plusieurs images couleurs de départ.
 </div>
 
 
-<div id="outline-container-org53e17d2" class="outline-2">
-<h2 id="org53e17d2"><span class="section-number-2">3</span> Comment lire un pixel</h2>
+<div id="outline-container-org86113b6" class="outline-2">
+<h2 id="org86113b6"><span class="section-number-2">3</span> Comment lire un pixel</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org5fd59d2" class="outline-3">
-<h3 id="org5fd59d2"><span class="section-number-3">3.1</span> Installation de PIL</h3>
+<div id="outline-container-orgbde1b82" class="outline-3">
+<h3 id="orgbde1b82"><span class="section-number-3">3.1</span> Installation de PIL</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 À faire au préalable par le professeur.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-shell"> pip3 install pillow
+<pre class="src src-shell">pip3 install pillow</pre>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org106295d" class="outline-3">
-<h3 id="org106295d"><span class="section-number-3">3.2</span> Activité</h3>
+<div id="outline-container-org15217bb" class="outline-3">
+<h3 id="org15217bb"><span class="section-number-3">3.2</span> Activité</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
-<span style="color: #a0522d;">r</span>,<span style="color: #a0522d;">v</span>,<span style="color: #a0522d;">b</span>=img.getpixel((100,250))
-<span style="color: #a020f0;">print</span>(<span style="color: #8b2252;">"canal rouge : "</span>,r,<span style="color: #8b2252;">"canal vert : "</span>,v,<span style="color: #8b2252;">"canal bleu : "</span>,b)
-</pre>
-</div>
-
-<pre class="example">
-('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
+<pre class="src src-python"><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>)
+<span style="color: #a0522d; font-size: 9.959999999999999pt;">r</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">v</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">b</span>=img.getpixel((100,250))
+<span style="color: #a020f0; font-size: 9.959999999999999pt;">print</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"canal rouge : "</span>,r,<span style="color: #8b2252; font-size: 9.959999999999999pt;">"canal vert : "</span>,v,<span style="color: #8b2252; font-size: 9.959999999999999pt;">"canal bleu : "</span>,b)</pre>
 </pre>
 </div>
 </div>
 </div>
+</div>
 
 
-<div id="outline-container-org9c165a8" class="outline-2">
-<h2 id="org9c165a8"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
+<div id="outline-container-orgf3c5856" class="outline-2">
+<h2 id="orgf3c5856"><span class="section-number-2">4</span> Comment écrire un pixel</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgcee2e80" class="outline-3">
-<h3 id="orgcee2e80"><span class="section-number-3">4.1</span> Code</h3>
+<div id="outline-container-org6b1a71f" class="outline-3">
+<h3 id="org6b1a71f"><span class="section-number-3">4.1</span> Code</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
+<pre class="src src-python"><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>)
 img.putpixel((5,5),(255,0,0))
-img.show()
+img.show()</pre>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org5c19f18" class="outline-3">
-<h3 id="org5c19f18"><span class="section-number-3">4.2</span> Question</h3>
+<div id="outline-container-org029d0d4" class="outline-3">
+<h3 id="org029d0d4"><span class="section-number-3">4.2</span> Question</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Identifier où se trouve l'origine de l'image.
@@ -368,8 +351,8 @@ Identifier où se trouve l'origine de l'image.
 </div>
 </div>
 
-<div id="outline-container-orgb497c8f" class="outline-3">
-<h3 id="orgb497c8f"><span class="section-number-3">4.3</span> Réponse</h3>
+<div id="outline-container-org2ab5329" class="outline-3">
+<h3 id="org2ab5329"><span class="section-number-3">4.3</span> Réponse</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité et cherchent en examinant l'image, près de quel coin  il apparaît. On identifie ainsi que l'origine est en haut à gauche.
@@ -379,41 +362,41 @@ Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou 
 </div>
 
 
-<div id="outline-container-orge7a5213" class="outline-2">
-<h2 id="orge7a5213"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
+<div id="outline-container-org1674093" class="outline-2">
+<h2 id="org1674093"><span class="section-number-2">5</span> Que fait le programme suivant ?</h2>
 <div class="outline-text-2" id="text-5">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #b22222;"># </span><span style="color: #b22222;">coding: utf-8                              # Sp&#233;cifie l'encodage (ici unicode) du code source</span>
-<span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image                        <span style="color: #b22222;"># </span><span style="color: #b22222;">Importation de la librairie PILLOW (gestion image)</span>
-<span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">'pomme.jpg'</span>)                <span style="color: #b22222;"># </span><span style="color: #b22222;">Mise en memoire dans la variable 'img' du fichier </span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># pomme.jpg qui doit &#234;tre dans le m&#234;me r&#233;pertoire que</span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># le programme</span>
-<span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size         <span style="color: #b22222;"># </span><span style="color: #b22222;">Python autorise les affectations multiples.</span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># img.size est un attribut (une variable intrins&#232;que</span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># &#224; la variable img) avec les dimensions de l'image</span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># sous forme de tupple (= liste non modifiable). </span>
+<pre class="src src-python"><span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">coding: utf-8                              # Sp&#233;cifie l'encodage (ici unicode) du code source</span>
+<span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image                        <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Importation de la librairie PILLOW (gestion image)</span>
+<span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">'pomme.jpg'</span>)                <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Mise en memoire dans la variable 'img' du fichier </span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># pomme.jpg qui doit &#234;tre dans le m&#234;me r&#233;pertoire que</span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># le programme</span>
+<span style="color: #a0522d; font-size: 9.959999999999999pt;">largeur_image</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">hauteur_image</span>=img.size         <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Python autorise les affectations multiples.</span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># img.size est un attribut (une variable intrins&#232;que</span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># &#224; la variable img) avec les dimensions de l'image</span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># sous forme de tupple (= liste non modifiable). </span>
 
-<span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):               <span style="color: #b22222;"># </span><span style="color: #b22222;">Boucle pour parcourir les toutes les lignes</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):           <span style="color: #b22222;"># </span><span style="color: #b22222;">Boucle imbriqu&#233;e pour parcourir les pixels de la</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;">#                                    </span><span style="color: #b22222;"># ligne en cours</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))  <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode getpixels() appliqu&#233;e &#224; la variable img qui</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #b22222;">#                                    </span><span style="color: #b22222;"># renvoie les valeurs R,V,B du pixel &#224; la position x,y</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_rouge</span>=vert                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le vert prend l'intensit&#233; du rouge</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_vert</span>=bleu                    <span style="color: #b22222;"># </span><span style="color: #b22222;">Le bleu prend l'intensit&#233; du vert</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_bleu</span>=rouge                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Le rouge prend l'intensit&#233; du bleu</span>
-<span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) <span style="color: #b22222;"># </span><span style="color: #b22222;">M&#233;thode putpixel()</span>
-<span style="color: #b22222;">#                                            </span><span style="color: #b22222;"># qui remplace les valeurs R, V, B du pixel en x,y </span>
+<span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> y <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(hauteur_image):               <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Boucle pour parcourir les toutes les lignes</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> x <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(largeur_image):           <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Boucle imbriqu&#233;e pour parcourir les pixels de la</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #b22222; font-size: 9.959999999999999pt;">#                                    </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># ligne en cours</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a0522d; font-size: 9.959999999999999pt;">rouge</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">vert</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">bleu</span>=img.getpixel((x,y))  <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">M&#233;thode getpixels() appliqu&#233;e &#224; la variable img qui</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #b22222; font-size: 9.959999999999999pt;">#                                    </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># renvoie les valeurs R,V,B du pixel &#224; la position x,y</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_rouge</span>=vert                   <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Le vert prend l'intensit&#233; du rouge</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_vert</span>=bleu                    <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Le bleu prend l'intensit&#233; du vert</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_bleu</span>=rouge                   <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Le rouge prend l'intensit&#233; du bleu</span>
+<span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu)) <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">M&#233;thode putpixel()</span>
+<span style="color: #b22222; font-size: 9.959999999999999pt;">#                                            </span><span style="color: #b22222; font-size: 9.959999999999999pt;"># qui remplace les valeurs R, V, B du pixel en x,y </span>
 
-img.show()                                   <span style="color: #b22222;"># </span><span style="color: #b22222;">Affichage de l'image</span>
-img.save(<span style="color: #8b2252;">"pommeMystere.jpg"</span>)                 <span style="color: #b22222;"># </span><span style="color: #b22222;">Sauvegarde de l'image obtenue</span>
-<span style="color: #a020f0;">print</span>(img.size)                              <span style="color: #b22222;"># </span><span style="color: #b22222;">Affichage du tupple avec la taille de l'image </span>
+img.show()                                   <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Affichage de l'image</span>
+img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pommeMystere.jpg"</span>)                 <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Sauvegarde de l'image obtenue</span>
+<span style="color: #a020f0; font-size: 9.959999999999999pt;">print</span>(img.size)                              <span style="color: #b22222; font-size: 9.959999999999999pt;"># </span><span style="color: #b22222; font-size: 9.959999999999999pt;">Affichage du tupple avec la taille de l'image </span></pre>
 </pre>
 </div>
 
 <pre class="example">
 (480, 300)
-</pre>
 
+</pre>
 
 <p>
 On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui servira de base pour le défi suivant.
@@ -433,8 +416,8 @@ Les couleurs ont été permutées.
 </div>
 
 
-<div id="outline-container-org2924b96" class="outline-2">
-<h2 id="org2924b96"><span class="section-number-2">6</span> Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</h2>
+<div id="outline-container-orgdb7e1bb" class="outline-2">
+<h2 id="orgdb7e1bb"><span class="section-number-2">6</span> Passage d'une image en niveaux de gris (codé RVB sur 3 octets)</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
@@ -450,20 +433,20 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 
 
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr"> 2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
-<span class="linenr"> 3: </span><span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr"> 2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>)
+<span class="linenr"> 3: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">largeur_image</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">hauteur_image</span>=img.size
 <span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
-<span class="linenr"> 6: </span><span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
-<span class="linenr"> 7: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
-<span class="linenr"> 8: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
-<span class="linenr"> 9: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
-<span class="linenr">10: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
-<span class="linenr">11: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+<span class="linenr"> 5: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> y <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(hauteur_image):
+<span class="linenr"> 6: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> x <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(largeur_image):
+<span class="linenr"> 7: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">rouge</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">vert</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">bleu</span>=img.getpixel((x,y))
+<span class="linenr"> 8: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span class="linenr"> 9: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span class="linenr">10: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span class="linenr">11: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 <span class="linenr">12: </span>
 <span class="linenr">13: </span>img.show()
-<span class="linenr">14: </span>img.save(<span style="color: #8b2252;">"pommegrise.jpg"</span>)
+<span class="linenr">14: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pommegrise.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -477,20 +460,20 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 
 
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr"> 2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"California_Quail.jpg"</span>)
-<span class="linenr"> 3: </span><span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr"> 2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"California_Quail.jpg"</span>)
+<span class="linenr"> 3: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">largeur_image</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">hauteur_image</span>=img.size
 <span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
-<span class="linenr"> 6: </span><span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
-<span class="linenr"> 7: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
-<span class="linenr"> 8: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
-<span class="linenr"> 9: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
-<span class="linenr">10: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
-<span class="linenr">11: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+<span class="linenr"> 5: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> y <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(hauteur_image):
+<span class="linenr"> 6: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> x <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(largeur_image):
+<span class="linenr"> 7: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">rouge</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">vert</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">bleu</span>=img.getpixel((x,y))
+<span class="linenr"> 8: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span class="linenr"> 9: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span class="linenr">10: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span class="linenr">11: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 <span class="linenr">12: </span>
 <span class="linenr">13: </span>img.show()
-<span class="linenr">14: </span>img.save(<span style="color: #8b2252;">"colingris.jpg"</span>)
+<span class="linenr">14: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"colingris.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -503,22 +486,28 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 </div>
 </div>
 
-<div id="outline-container-org5127dcb" class="outline-2">
-<h2 id="org5127dcb"><span class="section-number-2">7</span> Passage d'une image en niveau de gris (codé L sur 1 seul octet)</h2>
+
+<div id="outline-container-org95ca5f3" class="outline-2">
+<h2 id="org95ca5f3"><span class="section-number-2">7</span> Passage d'une image en niveau de gris (codé L sur 1 seul octet)</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgc6685f2" class="outline-3">
-<h3 id="orgc6685f2"><span class="section-number-3">7.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</h3>
+<div id="outline-container-orgb2fe79d" class="outline-3">
+<h3 id="orgb2fe79d"><span class="section-number-3">7.1</span> Utilisation du mode <code>L</code> (luminance) pour les images en nuances de gris</h3>
 <div class="outline-text-3" id="text-7-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #a0522d; font-size: 9.959999999999999pt;">L</span> = R * 299/1000 + G * 587/1000 + B * 114/1000</pre>
+</pre>
 </div>
-<div id="outline-container-org10b958b" class="outline-4">
-<h4 id="org10b958b"><span class="section-number-4">7.1.1</span> Pomme Linux</h4>
+</div>
+
+<div id="outline-container-orgbab1a6d" class="outline-4">
+<h4 id="orgbab1a6d"><span class="section-number-4">7.1.1</span> Pomme Linux</h4>
 <div class="outline-text-4" id="text-7-1-1">
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr">2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>).convert(<span style="color: #8b2252;">"L"</span>)
+<pre class="src src-python"><span class="linenr">1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr">2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>).convert(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"L"</span>)
 <span class="linenr">3: </span>img.show()
-<span class="linenr">4: </span>img.save(<span style="color: #8b2252;">"pommegriseL.jpg"</span>)
+<span class="linenr">4: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pommegriseL.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -533,14 +522,14 @@ Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils
 </div>
 
 
-<div id="outline-container-org37b1257" class="outline-4">
-<h4 id="org37b1257"><span class="section-number-4">7.1.2</span> Colin de Californie</h4>
+<div id="outline-container-org61de14d" class="outline-4">
+<h4 id="org61de14d"><span class="section-number-4">7.1.2</span> Colin de Californie</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr">1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr">2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"California_Quail.jpg"</span>).convert(<span style="color: #8b2252;">"L"</span>)
+<pre class="src src-python"><span class="linenr">1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr">2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"California_Quail.jpg"</span>).convert(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"L"</span>)
 <span class="linenr">3: </span>img.show()
-<span class="linenr">4: </span>img.save(<span style="color: #8b2252;">"colingrisL.jpg"</span>)
+<span class="linenr">4: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"colingrisL.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -565,8 +554,8 @@ Comparer la taille des différents fichiers. Conclure.
 </div>
 </div>
 
-<div id="outline-container-orge095aff" class="outline-3">
-<h3 id="orge095aff"><span class="section-number-3">7.2</span> Existe-t-il d'autres modes ?</h3>
+<div id="outline-container-org4451e28" class="outline-3">
+<h3 id="org4451e28"><span class="section-number-3">7.2</span> Existe-t-il d'autres modes ?</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#modes">modes</a> supportés par <code>Pillow</code> sont : 
@@ -591,28 +580,28 @@ Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#mode
 
 
 
-<div id="outline-container-org3e00a35" class="outline-2">
-<h2 id="org3e00a35"><span class="section-number-2">8</span> Récréation ou challenge ?</h2>
+<div id="outline-container-org2c488fb" class="outline-2">
+<h2 id="org2c488fb"><span class="section-number-2">8</span> Récréation ou challenge ?</h2>
 <div class="outline-text-2" id="text-8">
 </div>
-<div id="outline-container-org9893261" class="outline-3">
-<h3 id="org9893261"><span class="section-number-3">8.1</span> Créer une image en négatif</h3>
+<div id="outline-container-org69794df" class="outline-3">
+<h3 id="org69794df"><span class="section-number-3">8.1</span> Créer une image en négatif</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr"> 2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
-<span class="linenr"> 3: </span><span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr"> 2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>)
+<span class="linenr"> 3: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">largeur_image</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">hauteur_image</span>=img.size
 <span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
-<span class="linenr"> 6: </span><span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(largeur_image):
-<span class="linenr"> 7: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
-<span class="linenr"> 8: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_rouge</span>=255-rouge
-<span class="linenr"> 9: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_vert</span>=255-vert
-<span class="linenr">10: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">nouveau_bleu</span>=255-bleu
-<span class="linenr">11: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>   img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+<span class="linenr"> 5: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> y <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(hauteur_image):
+<span class="linenr"> 6: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> x <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(largeur_image):
+<span class="linenr"> 7: </span>        <span style="color: #a0522d; font-size: 9.959999999999999pt;">rouge</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">vert</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">bleu</span>=img.getpixel((x,y))
+<span class="linenr"> 8: </span>        <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_rouge</span>=255-rouge
+<span class="linenr"> 9: </span>        <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_vert</span>=255-vert
+<span class="linenr">10: </span>        <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_bleu</span>=255-bleu
+<span class="linenr">11: </span>        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 <span class="linenr">12: </span>
 <span class="linenr">13: </span>img.show()
-<span class="linenr">14: </span>img.save(<span style="color: #8b2252;">"pommeNegatif.jpg"</span>)
+<span class="linenr">14: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pommeNegatif.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -625,29 +614,29 @@ Les <a href="https://pillow.readthedocs.io/en/latest/handbook/concepts.html#mode
 </div>
 </div>
 
-<div id="outline-container-org801a3bf" class="outline-3">
-<h3 id="org801a3bf"><span class="section-number-3">8.2</span> Diagonale</h3>
+<div id="outline-container-orgdf9413d" class="outline-3">
+<h3 id="orgdf9413d"><span class="section-number-3">8.2</span> Diagonale</h3>
 <div class="outline-text-3" id="text-8-2">
 <p>
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0;">from</span> PIL <span style="color: #a020f0;">import</span> Image
-<span class="linenr"> 2: </span><span style="color: #a0522d;">img</span> = Image.<span style="color: #483d8b;">open</span>(<span style="color: #8b2252;">"pomme.jpg"</span>)
-<span class="linenr"> 3: </span><span style="color: #a0522d;">largeur_image</span>,<span style="color: #a0522d;">hauteur_image</span>=img.size
+<pre class="src src-python"><span class="linenr"> 1: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">from</span> PIL <span style="color: #a020f0; font-size: 9.959999999999999pt;">import</span> Image
+<span class="linenr"> 2: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">img</span> = Image.<span style="color: #483d8b; font-size: 9.959999999999999pt;">open</span>(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pomme.jpg"</span>)
+<span class="linenr"> 3: </span><span style="color: #a0522d; font-size: 9.959999999999999pt;">largeur_image</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">hauteur_image</span>=img.size
 <span class="linenr"> 4: </span>
-<span class="linenr"> 5: </span><span style="color: #a020f0;">for</span> y <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(hauteur_image):
-<span class="linenr"> 6: </span><span style="background-color: #f2f2f2;"> </span>   <span style="color: #a0522d;">tailleDiag</span>=y*largeur_image//hauteur_image
-<span class="linenr"> 7: </span><span style="background-color: #f2f2f2;"> </span>   <span style="color: #a020f0;">for</span> x <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(tailleDiag):
-<span class="linenr"> 8: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">rouge</span>,<span style="color: #a0522d;">vert</span>,<span style="color: #a0522d;">bleu</span>=img.getpixel((x,y))
-<span class="linenr"> 9: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_rouge</span>=(vert+bleu+rouge)//3
-<span class="linenr">10: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_vert</span>=(vert+bleu+rouge)//3
-<span class="linenr">11: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  <span style="color: #a0522d;">nouveau_bleu</span>=(vert+bleu+rouge)//3
-<span class="linenr">12: </span><span style="background-color: #f2f2f2;"> </span>   <span style="background-color: #f2f2f2;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+<span class="linenr"> 5: </span><span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> y <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(hauteur_image):
+<span class="linenr"> 6: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a0522d; font-size: 9.959999999999999pt;">tailleDiag</span>=y*largeur_image//hauteur_image
+<span class="linenr"> 7: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #a020f0; font-size: 9.959999999999999pt;">for</span> x <span style="color: #a020f0; font-size: 9.959999999999999pt;">in</span> <span style="color: #483d8b; font-size: 9.959999999999999pt;">range</span>(tailleDiag):
+<span class="linenr"> 8: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">rouge</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">vert</span>,<span style="color: #a0522d; font-size: 9.959999999999999pt;">bleu</span>=img.getpixel((x,y))
+<span class="linenr"> 9: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_rouge</span>=(vert+bleu+rouge)//3
+<span class="linenr">10: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_vert</span>=(vert+bleu+rouge)//3
+<span class="linenr">11: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  <span style="color: #a0522d; font-size: 9.959999999999999pt;">nouveau_bleu</span>=(vert+bleu+rouge)//3
+<span class="linenr">12: </span><span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>   <span style="color: #8c8c8c; font-size: 9.920159999999997pt;"> </span>  img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
 <span class="linenr">13: </span>
 <span class="linenr">14: </span>img.show()
-<span class="linenr">15: </span>img.save(<span style="color: #8b2252;">"pommemisgrise.jpg"</span>)
+<span class="linenr">15: </span>img.save(<span style="color: #8b2252; font-size: 9.959999999999999pt;">"pommemisgrise.jpg"</span>)</pre>
 </pre>
 </div>
 
@@ -662,20 +651,19 @@ Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui
 </div>
 
 
-<div id="outline-container-org15b22e0" class="outline-2">
-<h2 id="org15b22e0"><span class="section-number-2">9</span> Adapter cette ressource</h2>
+<div id="outline-container-org24a1b65" class="outline-2">
+<h2 id="org24a1b65"><span class="section-number-2">9</span> Adapter cette ressource</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur <a href="https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie">emacs</a> mais sinon n'importe quel éditeur convient).</li>
-
-<li>Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a></li>
+<li>Source : <a href="http://www.ac-grenoble.fr/disciplines/informatiquelycee/n_site/snt_photo_transImg.html">Traitement d'image de l'académie de grenoble</a> (le site a été fermé).</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Auteur: Raoul HATTERER</p>
-<p class="date">Created: 2019-02-08 ven. 20:58</p>
+<p class="date">Created: 2019-02-11 Mon 17:18</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

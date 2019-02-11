@@ -1,4 +1,4 @@
-% Created 2019-02-08 ven. 23:10
+% Created 2019-02-11 Mon 17:18
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -14,8 +14,7 @@
 \usepackage{amssymb}
 \usepackage{capt-of}
 \usepackage{hyperref}
-\usepackage{minted}
-\usepackage[french]{babel}
+\usepackage[frenchb]{babel}
 \usepackage[x11names]{xcolor}
 \hypersetup{linktoc = all, colorlinks = true, urlcolor = DodgerBlue4, citecolor = PaleGreen1, linkcolor = black}
 \usepackage[left=1cm,right=1cm,top=2cm,bottom=2cm]{geometry}
@@ -28,8 +27,8 @@
  pdftitle={Traitement d'image},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 26.1 (Org mode 9.2)}, 
- pdflang={French}}
+ pdfcreator={Emacs 25.3.50.1 (Org mode 9.1.14)}, 
+ pdflang={Frenchb}}
 \begin{document}
 
 \maketitle
@@ -39,7 +38,7 @@
 
 
 \section{Codage RVB et niveau de gris}
-\label{sec:org63f276f}
+\label{sec:org9400dd3}
 
 \begin{itemize}
 \item Aller sur \href{https://www.w3schools.com/colors/colors\_rgb.asp}{colors RGB} et tester ce que l'on obtient si l'on remplace chacune des valeurs R, V et B d'un pixel par la moyenne des sous-pixels.
@@ -48,7 +47,7 @@
 
 
 \section{Images de départ}
-\label{sec:org14360fc}
+\label{sec:org7b9165c}
 
 Le professeur propose une ou plusieurs images couleurs de départ.
 
@@ -68,60 +67,56 @@ Le professeur propose une ou plusieurs images couleurs de départ.
 
 
 \section{Comment lire un pixel}
-\label{sec:orgb1eec5b}
+\label{sec:org5fc3a70}
 
 \subsection{Installation de PIL}
-\label{sec:org0ccf2d2}
+\label{sec:org7e0bb9c}
 
 À faire au préalable par le professeur.
 
-\begin{minted}[]{shell}
- pip3 install pillow
-\end{minted}
+\begin{verbatim}
+pip3 install pillow
+\end{verbatim}
 
 \subsection{Activité}
-\label{sec:orgb8adf38}
+\label{sec:org7f1a2d2}
 
 Après avoir fait quelques recherches sur ce qu'est un "pixel", voyons comment lire le pixel de coordonnées (100,250).
 
-\begin{minted}[]{python}
+\begin{verbatim}
 from PIL import Image
 img = Image.open("pomme.jpg")
 r,v,b=img.getpixel((100,250))
 print("canal rouge : ",r,"canal vert : ",v,"canal bleu : ",b)
-\end{minted}
-
-\begin{verbatim}
-('canal rouge : ', 19, 'canal vert : ', 88, 'canal bleu : ', 192)
 \end{verbatim}
 
 
 \section{Comment écrire un pixel}
-\label{sec:org678fe6b}
+\label{sec:org7a6c59f}
 
 \subsection{Code}
-\label{sec:orgfda9eb3}
+\label{sec:org86060fa}
 
-\begin{minted}[]{python}
+\begin{verbatim}
 from PIL import Image
 img = Image.open("pomme.jpg")
 img.putpixel((5,5),(255,0,0))
 img.show()
-\end{minted}
+\end{verbatim}
 
 \subsection{Question}
-\label{sec:orgf7217d5}
+\label{sec:org1ea215b}
 Identifier où se trouve l'origine de l'image.
 
 \subsection{Réponse}
-\label{sec:org848c659}
+\label{sec:orgb8eff15}
 Les élèves  écrivent un pixel de couleur spécifique à la position (0,0) ou à proximité et cherchent en examinant l'image, près de quel coin  il apparaît. On identifie ainsi que l'origine est en haut à gauche.
 
 
 \section{Que fait le programme suivant ?}
-\label{sec:orga6bbb42}
+\label{sec:org94417b3}
 
-\begin{minted}[]{python}
+\begin{verbatim}
 # coding: utf-8                              # Spécifie l'encodage (ici unicode) du code source
 from PIL import Image                        # Importation de la librairie PILLOW (gestion image)
 img = Image.open('pomme.jpg')                # Mise en memoire dans la variable 'img' du fichier 
@@ -146,12 +141,11 @@ for y in range(hauteur_image):               # Boucle pour parcourir les toutes 
 img.show()                                   # Affichage de l'image
 img.save("pommeMystere.jpg")                 # Sauvegarde de l'image obtenue
 print(img.size)                              # Affichage du tupple avec la taille de l'image 
-\end{minted}
+\end{verbatim}
 
 \begin{verbatim}
 (480, 300)
 \end{verbatim}
-
 
 On analyse le code ci-dessus (sans forcément rentrer dans les détails) qui servira de base pour le défi suivant.
 
@@ -165,7 +159,7 @@ Les couleurs ont été permutées.
 
 
 \section{Passage d'une image en niveaux de gris (codé RVB sur 3 octets)}
-\label{sec:org8d2c88e}
+\label{sec:orgbaba77f}
 
 Après avoir fait quelques recherches sur les "images en niveaux de gris", écrivez un programme qui transforme une "image couleur" en une "image en niveaux de gris".
 
@@ -174,22 +168,22 @@ Petite astuce qui pourrait vous aider : en Python pour avoir une division entiè
 Remarque: On donne l'algorithme aux élèves (ou on le construit avec eux) ; ils doivent alors programmer le passage d'une image couleur à une image en niveaux de gris.
 
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-       rouge,vert,bleu=img.getpixel((x,y))
-       nouveau_rouge=(vert+bleu+rouge)//3
-       nouveau_vert=(vert+bleu+rouge)//3
-       nouveau_bleu=(vert+bleu+rouge)//3
-       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
-
-img.show()
-img.save("pommegrise.jpg")
-\end{minted}
+\begin{verbatim}
+ 1  from PIL import Image
+ 2  img = Image.open("pomme.jpg")
+ 3  largeur_image,hauteur_image=img.size
+ 4  
+ 5  for y in range(hauteur_image):
+ 6      for x in range(largeur_image):
+ 7         rouge,vert,bleu=img.getpixel((x,y))
+ 8         nouveau_rouge=(vert+bleu+rouge)//3
+ 9         nouveau_vert=(vert+bleu+rouge)//3
+10         nouveau_bleu=(vert+bleu+rouge)//3
+11         img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+12  
+13  img.show()
+14  img.save("pommegrise.jpg")
+\end{verbatim}
 
 \begin{figure}[htbp]
 \centering
@@ -199,22 +193,22 @@ img.save("pommegrise.jpg")
 
 
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("California_Quail.jpg")
-largeur_image,hauteur_image=img.size
-
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-       rouge,vert,bleu=img.getpixel((x,y))
-       nouveau_rouge=(vert+bleu+rouge)//3
-       nouveau_vert=(vert+bleu+rouge)//3
-       nouveau_bleu=(vert+bleu+rouge)//3
-       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
-
-img.show()
-img.save("colingris.jpg")
-\end{minted}
+\begin{verbatim}
+ 1  from PIL import Image
+ 2  img = Image.open("California_Quail.jpg")
+ 3  largeur_image,hauteur_image=img.size
+ 4  
+ 5  for y in range(hauteur_image):
+ 6      for x in range(largeur_image):
+ 7         rouge,vert,bleu=img.getpixel((x,y))
+ 8         nouveau_rouge=(vert+bleu+rouge)//3
+ 9         nouveau_vert=(vert+bleu+rouge)//3
+10         nouveau_bleu=(vert+bleu+rouge)//3
+11         img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+12  
+13  img.show()
+14  img.save("colingris.jpg")
+\end{verbatim}
 
 \begin{figure}[htbp]
 \centering
@@ -222,21 +216,28 @@ img.save("colingris.jpg")
 \caption{Colin de Californie en niveaux de gris RVB}
 \end{figure}
 
+
 \section{Passage d'une image en niveau de gris (codé L sur 1 seul octet)}
-\label{sec:orgc21acf3}
+\label{sec:org0e02db9}
 
 
 \subsection{Utilisation du mode \texttt{L} (luminance) pour les images en nuances de gris}
-\label{sec:orgacaa3b9}
-\subsubsection{Pomme Linux}
-\label{sec:orga42ac86}
+\label{sec:org572bd15}
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("pomme.jpg").convert("L")
-img.show()
-img.save("pommegriseL.jpg")
-\end{minted}
+
+\begin{verbatim}
+L = R * 299/1000 + G * 587/1000 + B * 114/1000
+\end{verbatim}
+
+\subsubsection{Pomme Linux}
+\label{sec:org498adaf}
+
+\begin{verbatim}
+1  from PIL import Image
+2  img = Image.open("pomme.jpg").convert("L")
+3  img.show()
+4  img.save("pommegriseL.jpg")
+\end{verbatim}
 
 
 \begin{figure}[htbp]
@@ -247,14 +248,14 @@ img.save("pommegriseL.jpg")
 
 
 \subsubsection{Colin de Californie}
-\label{sec:org5124523}
+\label{sec:orgae8ef4b}
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("California_Quail.jpg").convert("L")
-img.show()
-img.save("colingrisL.jpg")
-\end{minted}
+\begin{verbatim}
+1  from PIL import Image
+2  img = Image.open("California_Quail.jpg").convert("L")
+3  img.show()
+4  img.save("colingrisL.jpg")
+\end{verbatim}
 
 
 \begin{figure}[htbp]
@@ -270,7 +271,7 @@ Comparer la taille des différents fichiers. Conclure.
 \emph{Réponse : codée avec un octet par pixel, l'image (les datas) prend moins de place donc le fichier est moins lourd (la compression jpeg atténue le phénomène).}
 
 \subsection{Existe-t-il d'autres modes ?}
-\label{sec:orgde84d41}
+\label{sec:orgbf41a2b}
 
 Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}{modes} supportés par \texttt{Pillow} sont : 
 
@@ -291,27 +292,27 @@ Les \href{https://pillow.readthedocs.io/en/latest/handbook/concepts.html\#modes}
 
 
 \section{Récréation ou challenge ?}
-\label{sec:orgc374b73}
+\label{sec:org33294cc}
 
 \subsection{Créer une image en négatif}
-\label{sec:orge6a005a}
+\label{sec:org7296f64}
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-
-for y in range(hauteur_image):
-    for x in range(largeur_image):
-        rouge,vert,bleu=img.getpixel((x,y))
-        nouveau_rouge=255-rouge
-        nouveau_vert=255-vert
-        nouveau_bleu=255-bleu
-        img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
-
-img.show()
-img.save("pommeNegatif.jpg")
-\end{minted}
+\begin{verbatim}
+ 1  from PIL import Image
+ 2  img = Image.open("pomme.jpg")
+ 3  largeur_image,hauteur_image=img.size
+ 4  
+ 5  for y in range(hauteur_image):
+ 6      for x in range(largeur_image):
+ 7  	rouge,vert,bleu=img.getpixel((x,y))
+ 8  	nouveau_rouge=255-rouge
+ 9  	nouveau_vert=255-vert
+10  	nouveau_bleu=255-bleu
+11  	img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+12  
+13  img.show()
+14  img.save("pommeNegatif.jpg")
+\end{verbatim}
 
 \begin{figure}[htbp]
 \centering
@@ -320,27 +321,27 @@ img.save("pommeNegatif.jpg")
 \end{figure}
 
 \subsection{Diagonale}
-\label{sec:org3665238}
+\label{sec:org7ec40e4}
 
 Créer le programme qui garde l'image d'origine au-dessus d'une diagonale et qui transforme en niveaux de gris en-dessous de celle-ci.
 
-\begin{minted}[linenos,firstnumber=1]{python}
-from PIL import Image
-img = Image.open("pomme.jpg")
-largeur_image,hauteur_image=img.size
-
-for y in range(hauteur_image):
-    tailleDiag=y*largeur_image//hauteur_image
-    for x in range(tailleDiag):
-       rouge,vert,bleu=img.getpixel((x,y))
-       nouveau_rouge=(vert+bleu+rouge)//3
-       nouveau_vert=(vert+bleu+rouge)//3
-       nouveau_bleu=(vert+bleu+rouge)//3
-       img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
-
-img.show()
-img.save("pommemisgrise.jpg")
-\end{minted}
+\begin{verbatim}
+ 1  from PIL import Image
+ 2  img = Image.open("pomme.jpg")
+ 3  largeur_image,hauteur_image=img.size
+ 4  
+ 5  for y in range(hauteur_image):
+ 6      tailleDiag=y*largeur_image//hauteur_image
+ 7      for x in range(tailleDiag):
+ 8         rouge,vert,bleu=img.getpixel((x,y))
+ 9         nouveau_rouge=(vert+bleu+rouge)//3
+10         nouveau_vert=(vert+bleu+rouge)//3
+11         nouveau_bleu=(vert+bleu+rouge)//3
+12         img.putpixel((x,y),(nouveau_rouge,nouveau_vert,nouveau_bleu))
+13  
+14  img.show()
+15  img.save("pommemisgrise.jpg")
+\end{verbatim}
 
 \begin{figure}[htbp]
 \centering
@@ -350,7 +351,9 @@ img.save("pommemisgrise.jpg")
 
 
 \section{Adapter cette ressource}
-\label{sec:orgb220928}
-Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur \href{https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie}{emacs} mais sinon n'importe quel éditeur convient). 
-Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble}
+\label{sec:org346a226}
+\begin{itemize}
+\item Pour adapter cette ressource à votre goût: éditez les fichiers .org (l'idéal étant de les éditer dans l'éditeur \href{https://linuxfr.org/users/postroutine/journaux/pourquoi-emacs-premiere-partie}{emacs} mais sinon n'importe quel éditeur convient).
+\item Source : \href{http://www.ac-grenoble.fr/disciplines/informatiquelycee/n\_site/snt\_photo\_transImg.html}{Traitement d'image de l'académie de grenoble} (le site a été fermé).
+\end{itemize}
 \end{document}
